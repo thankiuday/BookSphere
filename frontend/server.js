@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handle client-side routing - send all requests to index.html
 app.get('*', (req, res) => {
+  console.log(`Request received: ${req.method} ${req.path}`);
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
