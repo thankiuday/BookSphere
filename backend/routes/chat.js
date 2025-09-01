@@ -122,6 +122,14 @@ router.post('/', validateChatMessage, async (req, res) => {
     // Debug: Log first chunk content if available
     if (relevantContent.length > 0) {
       console.log('First chunk preview:', relevantContent[0].pageContent.substring(0, 100) + '...');
+    } else {
+      console.log('No relevant content found. This could mean:');
+      console.log('1. The book embeddings are not properly stored');
+      console.log('2. The search query is not matching any content');
+      console.log('3. The book processing is incomplete');
+      console.log('Book processing status:', book.processingStatus);
+      console.log('Book is processed:', book.isProcessed);
+      console.log('Book total chunks:', book.totalChunks);
     }
 
     // Check if query is relevant to book content
@@ -155,9 +163,20 @@ router.post('/', validateChatMessage, async (req, res) => {
         aiResponse = "I'm sorry, I encountered an error while processing your question. Please try again.";
       }
     } else {
-      // Return restricted response
+      // Return restricted response with more helpful information
       console.log('Returning restricted response');
-      aiResponse = "❌ Sorry, this chat is restricted to the contents of this book.";
+      
+      // Check if the issue is no embeddings vs no relevant content
+      if (relevantContent.length === 0) {
+        aiResponse = "❌ I'm having trouble accessing the book content. This could be because:\n\n" +
+                    "• The book is still being processed\n" +
+                    "• The book content is not available\n" +
+                    "• There was an issue with the book upload\n\n" +
+                    "Please try again later or contact the book author if the problem persists.";
+      } else {
+        aiResponse = "❌ Sorry, this chat is restricted to the contents of this book. " +
+                    "Please ask questions specifically related to the book content.";
+      }
       isRestricted = true;
     }
 
