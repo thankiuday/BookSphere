@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/chat/(.*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/chatwith/(.*)",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(login|register|dashboard|upload|books)",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

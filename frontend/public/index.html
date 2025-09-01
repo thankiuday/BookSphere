@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookSphere - Chat with Books</title>
+    <meta name="description" content="Discover and chat with books from authors worldwide. Join a growing global community of authors and readers." />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BookSphere - Chat with Books" />
+    <meta property="og:description" content="Discover and chat with books from authors worldwide. Join a growing global community of authors and readers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://booksphere-frontend-udd4.onrender.com" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BookSphere - Chat with Books" />
+    <meta name="twitter:description" content="Discover and chat with books from authors worldwide. Join a growing global community of authors and readers." />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.jsx" as="script" />
+    
+    <!-- Fallback script for client-side routing -->
+    <script>
+      // Fallback for static hosting - redirect all non-asset requests to index.html
+      if (window.location.pathname !== '/' && !window.location.pathname.includes('.')) {
+        // This is a client-side route, ensure it loads the React app
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

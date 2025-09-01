@@ -1,1 +1,11 @@
+# Handle client-side routing for React Router
 /*    /index.html   200
+
+# Specific routes for better compatibility
+/chat/*    /index.html   200
+/chatwith/*    /index.html   200
+/login    /index.html   200
+/register    /index.html   200
+/dashboard    /index.html   200
+/upload    /index.html   200
+/books    /index.html   200

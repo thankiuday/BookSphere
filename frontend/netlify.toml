@@ -1,4 +1,19 @@
 [[redirects]]
+  from = "/chat/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/chatwith/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/(login|register|dashboard|upload|books)"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
