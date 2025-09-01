@@ -22,7 +22,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/chat/:subdomain" element={<ReaderChatPage />} />
-            <Route path="/chatwith/:subdomain" element={<ReaderChatPage />} />
             <Route path="/login" element={<AuthorLoginPage />} />
             <Route path="/register" element={<AuthorRegisterPage />} />
             <Route path="/books" element={<BookListPage />} />

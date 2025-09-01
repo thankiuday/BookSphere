@@ -3,7 +3,6 @@
 
 # Specific routes for better compatibility
 /chat/*    /index.html   200
-/chatwith/*    /index.html   200
 /login    /index.html   200
 /register    /index.html   200
 /dashboard    /index.html   200
