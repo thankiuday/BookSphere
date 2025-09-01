@@ -70,9 +70,11 @@ NODE_ENV=production
 Add these in Render Dashboard → Your Frontend Service → Environment:
 
 ```bash
-# Backend API URL (update after backend deployment)
+# Backend API URL (update after backend deployment - WITHOUT /api suffix)
 VITE_API_URL=https://booksphere-backend.onrender.com
 ```
+
+**Important**: Do NOT include `/api` in the VITE_API_URL. The frontend will automatically append `/api` to the base URL.
 
 ## Step 3: Deployment Order
 
