@@ -32,6 +32,8 @@ This guide will help you deploy BookSphere to Render's free tier.
    - **Build Command**: `npm install && npm run build`
    - **Publish Directory**: `dist`
    - **Plan**: Free
+   - **Headers**: Add custom header `/*` → `X-Frame-Options: DENY`
+   - **Redirects/Rewrites**: Add rewrite rule `/*` → `/index.html` (status 200)
 
 ## Step 2: Environment Variables
 
@@ -130,15 +132,22 @@ You can add custom domains in Render Dashboard:
 
 ### Common Issues:
 
-1. **Backend Sleeps**: Free tier services sleep after 15 minutes of inactivity
+1. **404 Errors on Routes** (e.g., `/register`, `/login`):
+   - **Problem**: Static site hosting doesn't handle React Router routes
+   - **Solution**: Add rewrite rule in Render Dashboard:
+     - Go to your frontend service → Settings → Redirects & Rewrites
+     - Add: `/*` → `/index.html` (Status: 200)
+   - **Alternative**: Use the `_redirects` file in `public/` folder
+
+2. **Backend Sleeps**: Free tier services sleep after 15 minutes of inactivity
    - First request after sleep takes ~30 seconds
    - Consider upgrading to paid plan for production
 
-2. **CORS Errors**: Ensure `FRONTEND_URL` matches your actual frontend URL
+3. **CORS Errors**: Ensure `FRONTEND_URL` matches your actual frontend URL
 
-3. **Build Failures**: Check build logs in Render Dashboard
+4. **Build Failures**: Check build logs in Render Dashboard
 
-4. **Environment Variables**: Ensure all required variables are set
+5. **Environment Variables**: Ensure all required variables are set
 
 ### Logs and Monitoring:
 
