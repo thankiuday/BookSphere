@@ -5,6 +5,7 @@ services:
     buildCommand: npm install && npm run build
     startCommand: npm start
     plan: free
+    healthCheckPath: /
     headers:
       - path: /*
         name: X-Frame-Options

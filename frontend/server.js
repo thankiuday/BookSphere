@@ -8,6 +8,11 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Test endpoint to verify server is running
+app.get('/api/test', (req, res) => {
+  res.json({ status: 'Frontend server is running', timestamp: new Date().toISOString() });
+});
+
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
 

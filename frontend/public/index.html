@@ -28,6 +28,10 @@
         // This is a client-side route, ensure it loads the React app
         window.history.replaceState({}, '', window.location.pathname);
       }
+      
+      // Debug: Log current URL
+      console.log('Current URL:', window.location.href);
+      console.log('Current pathname:', window.location.pathname);
     </script>
   </head>
   <body>
