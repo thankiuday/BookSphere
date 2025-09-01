@@ -68,18 +68,19 @@ const generateAndSaveQRCode = async (url, s3Utils, folder = 'qr-codes') => {
 const generateBookQRCode = async (subdomain, s3Utils) => {
   try {
     const bookUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/chatwith/${subdomain}`;
+    console.log('Generating QR code for URL:', bookUrl);
     
-    // Generate QR code as buffer
+    // Generate QR code as buffer with better scanning properties
     const qrCodeBuffer = await QRCode.toBuffer(bookUrl, {
-      errorCorrectionLevel: 'M',
+      errorCorrectionLevel: 'H', // High error correction for better scanning
       type: 'image/png',
-      quality: 0.92,
-      margin: 1,
+      quality: 1.0, // Maximum quality
+      margin: 4, // Larger margin for better scanning
       color: {
-        dark: '#002D62', // Garden City University deep blue
-        light: '#FFFFFF'
+        dark: '#000000', // Pure black for better contrast
+        light: '#FFFFFF' // Pure white background
       },
-      width: 300
+      width: 512 // Larger size for better scanning
     });
 
     // Create a file-like object for S3 upload
@@ -99,7 +100,17 @@ const generateBookQRCode = async (subdomain, s3Utils) => {
       qrCodeUrl: presignedUrl, // Use presigned URL for public access
       qrCodeKey: result.key,
       bookUrl: bookUrl,
-      qrDataURL: await QRCode.toDataURL(bookUrl), // Keep data URL as backup
+      qrDataURL: await QRCode.toDataURL(bookUrl, {
+        errorCorrectionLevel: 'H',
+        type: 'image/png',
+        quality: 1.0,
+        margin: 4,
+        color: {
+          dark: '#000000',
+          light: '#FFFFFF'
+        },
+        width: 512
+      }), // Keep data URL as backup
       expiresAt: new Date(Date.now() + 604800 * 1000) // 7 days from now
     };
   } catch (error) {
