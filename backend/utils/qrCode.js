@@ -67,7 +67,7 @@ const generateAndSaveQRCode = async (url, s3Utils, folder = 'qr-codes') => {
 // Generate QR code for book subdomain
 const generateBookQRCode = async (subdomain, s3Utils) => {
   try {
-    const bookUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/chat/${subdomain}`;
+    const bookUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/chatwith/${subdomain}`;
     
     // Generate QR code as buffer
     const qrCodeBuffer = await QRCode.toBuffer(bookUrl, {

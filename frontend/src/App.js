@@ -14,7 +14,6 @@ import BookListPage from './pages/BookListPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  console.log('App rendered, current pathname:', window.location.pathname);
   return (
     <AuthProvider>
       <div className="min-h-screen bg-background-50">
@@ -22,12 +21,7 @@ function App() {
         <main className="pt-16">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/chat/:subdomain" element={<div>TEST CHAT PAGE - Subdomain: {window.location.pathname.split('/')[2]}</div>} />
             <Route path="/chatwith/:subdomain" element={<ReaderChatPage />} />
-            <Route path="/book/:id" element={<div>Book ID: {window.location.pathname.split('/')[2]}</div>} />
-            <Route path="/user/:id" element={<div>User ID: {window.location.pathname.split('/')[2]}</div>} />
-            <Route path="/test-param/:id" element={<div>Test Param: {window.location.pathname.split('/')[2]}</div>} />
-            <Route path="/simple-test" element={<div>Simple Test Route</div>} />
             <Route path="/login" element={<AuthorLoginPage />} />
             <Route path="/register" element={<AuthorRegisterPage />} />
             <Route path="/books" element={<BookListPage />} />
