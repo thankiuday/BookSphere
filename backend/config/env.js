@@ -2,7 +2,7 @@
 const config = {
   // Database
   mongodb: {
-    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/booksphere'
+    uri: process.env.MONGODB_URI || (process.env.NODE_ENV === 'production' ? null : 'mongodb://localhost:27017/booksphere')
   },
   
   // JWT
@@ -38,6 +38,11 @@ const config = {
 // Validate required environment variables
 const validateConfig = () => {
   const errors = [];
+  
+  // Always validate MongoDB URI
+  if (!config.mongodb.uri) {
+    errors.push('MONGODB_URI is required for database connection');
+  }
   
   // Only validate S3 and OpenAI in production
   if (config.server.nodeEnv === 'production') {

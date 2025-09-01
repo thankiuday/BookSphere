@@ -111,7 +111,7 @@ const bookSchema = new mongoose.Schema({
 });
 
 // Indexes for faster queries
-bookSchema.index({ subdomain: 1 });
+// Note: subdomain index is automatically created by unique: true in schema
 bookSchema.index({ authorId: 1 });
 bookSchema.index({ isPublic: 1 });
 bookSchema.index({ createdAt: -1 });

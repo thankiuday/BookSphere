@@ -65,7 +65,7 @@ const chatSchema = new mongoose.Schema({
 
 // Indexes for faster queries
 chatSchema.index({ bookId: 1 });
-chatSchema.index({ sessionId: 1 });
+// Note: sessionId index is automatically created by unique: true in schema
 chatSchema.index({ startedAt: -1 });
 chatSchema.index({ lastActivity: -1 });
 
