@@ -21,6 +21,7 @@ function App() {
         <main className="pt-16">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/chat/:subdomain" element={<ReaderChatPage />} />
             <Route path="/chatwith/:subdomain" element={<ReaderChatPage />} />
             <Route path="/login" element={<AuthorLoginPage />} />
             <Route path="/register" element={<AuthorRegisterPage />} />
