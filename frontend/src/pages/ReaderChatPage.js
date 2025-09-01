@@ -17,17 +17,27 @@ const ReaderChatPage = () => {
     const fetchBook = async () => {
       try {
         setLoading(true);
+        console.log('Fetching book with subdomain:', subdomain);
+        console.log('API base URL:', api.defaults.baseURL);
         const response = await api.get(`/books/${subdomain}`);
+        console.log('Book response:', response.data);
         setBook(response.data.book);
       } catch (error) {
         console.error('Error fetching book:', error);
-        setError('Book not found or no longer available');
+        console.error('Error response:', error.response?.data);
+        console.error('Error status:', error.response?.status);
+        setError(`Book not found: ${error.response?.data?.message || error.message}`);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchBook();
+    if (subdomain) {
+      fetchBook();
+    } else {
+      setError('No subdomain provided');
+      setLoading(false);
+    }
   }, [subdomain]);
 
   if (loading) {
