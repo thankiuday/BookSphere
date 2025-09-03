@@ -116,13 +116,17 @@ router.post('/', validateChatMessage, async (req, res) => {
     console.log('Book processing status:', book.processingStatus);
     console.log('Book total chunks:', book.totalChunks);
     
-    const relevantContent = await searchEmbeddings(book._id, message, 5);
-    console.log('Relevant content found:', relevantContent.length, 'chunks');
-    
-    // Debug: Log first chunk content if available
-    if (relevantContent.length > 0) {
-      console.log('First chunk preview:', relevantContent[0].pageContent.substring(0, 100) + '...');
-    } else {
+    let relevantContent = [];
+    try {
+      relevantContent = await searchEmbeddings(book._id, message, 5);
+      console.log('Relevant content found:', relevantContent.length, 'chunks');
+      
+      // Debug: Log first chunk content if available
+      if (relevantContent.length > 0) {
+        console.log('First chunk preview:', relevantContent[0].pageContent.substring(0, 100) + '...');
+      }
+    } catch (embeddingError) {
+      console.error('Embedding search failed:', embeddingError.message);
       console.log('No relevant content found. This could mean:');
       console.log('1. The book embeddings are not properly stored');
       console.log('2. The search query is not matching any content');
@@ -130,11 +134,14 @@ router.post('/', validateChatMessage, async (req, res) => {
       console.log('Book processing status:', book.processingStatus);
       console.log('Book is processed:', book.isProcessed);
       console.log('Book total chunks:', book.totalChunks);
+      
+      // Set relevantContent to empty array to continue processing
+      relevantContent = [];
     }
 
     // Check if query is relevant to book content
     console.log('Checking query relevance...');
-    const isRelevant = await isQueryRelevant(message, relevantContent);
+    const isRelevant = await isQueryRelevant(message, relevantContent, book.title);
     console.log('Query is relevant:', isRelevant);
 
     let aiResponse;

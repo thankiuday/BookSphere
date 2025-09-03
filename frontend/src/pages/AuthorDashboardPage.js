@@ -346,19 +346,12 @@ const AuthorDashboardPage = () => {
                       </div>
                       
                       <div className="flex items-center space-x-2">
-                        <a
-                          href={book.bookUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-outline text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2"
-                        >
-                          View Book
-                        </a>
+
                         <button
                           onClick={() => navigate(`/chat/${book.subdomain}`)}
                           className="btn-secondary text-xs sm:text-sm px-3 py-1.5 sm:px-4 sm:py-2"
                         >
-                          Test Chat
+                          Chat with Book
                         </button>
                       </div>
                     </div>

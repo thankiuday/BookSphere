@@ -1,0 +1,162 @@
+{
+  "bookId": "68b7fd407524a298c19a31f8",
+  "documents": [
+    {
+      "pageContent": "Governors State University\nOPUS Open Portal to University Scholarship\nAll Capstone ProjectsStudent Capstone Projects\nSummer 2014\nDesign and Implementation of E-Commerce Site\nfor Online Shopping\nSidhartha Reddy Vatrapu\nGovernors State University\nFollow this and additional works at:https://opus.govst.edu/capstones\nPart of theDatabases and Information Systems Commons, and theSystems Architecture\nCommons\nFor more information about the academic degree, extended learning, and certificate programs of Governors State University, go to\nhttp://www.govst.edu/Academics/Degree_Programs_and_Certifications/\nVisit theGovernors State Computer Science Department\nThis Project Summary is brought to you for free and open access by the Student Capstone Projects at OPUS Open Portal to University Scholarship. It\nhas been accepted for inclusion in All Capstone Projects by an authorized administrator of OPUS Open Portal to University Scholarship. For more\ninformation, please contactopus@govst.edu.",
+      "metadata": {
+        "id": 0
+      }
+    },
+    {
+      "pageContent": "has been accepted for inclusion in All Capstone Projects by an authorized administrator of OPUS Open Portal to University Scholarship. For more\ninformation, please contactopus@govst.edu.\nRecommended Citation\nVatrapu, Sidhartha Reddy, \"Design and Implementation of E-Commerce Site for Online Shopping\" (2014).All Capstone Projects. 79.\nhttps://opus.govst.edu/capstones/79",
+      "metadata": {
+        "id": 1
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n1 \n \nGraduate Project \n \nDesign and Implementation of \nE-  Commerce Site for Online Shopping  \nBy \nSidhartha Reddy Vatrapu \n \nFor the Degree Master of Computer Science, \nWith a Major in Computer Science \n \nGovernors State University \nUniversity Park, IL 60484 \n \n2014",
+      "metadata": {
+        "id": 2
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n3 \n \n \n \nABSTRACT \nIn  today’s  fast-changing business environment,  it’s  extremely  important  to  be  able  to  respond  \nto  client  needs  in  the  most  effective  and  timely  manner.  If  your  customers  wish  to  see  your  \nbusiness online and have instant access to your products or services.  \nOnline  Shopping  is  a  lifestyle  e-commerce  web  application,  which  retails  various  fashion  and  \nlifestyle   products   (Currently   Men’s   Wear).   This   project   allows   viewing   various   products   \navailable enables registered users to purchase desired products instantly using PayPal payment \nprocessor  (Instant  Pay)  and  also  can  place  order  by  using  Cash  on  Delivery  (Pay  Later)  option.  \nThis  project  provides  an  easy  access  to  Administrators  and  Managers  to  view  orders  placed  \nusing Pay Later and Instant Pay options.",
+      "metadata": {
+        "id": 3
+      }
+    },
+    {
+      "pageContent": "This  project  provides  an  easy  access  to  Administrators  and  Managers  to  view  orders  placed  \nusing Pay Later and Instant Pay options.  \nIn  order  to  develop  an  e-commerce  website,  a  number  of  Technologies  must  be  studied  and  \nunderstood. These include multi-tiered architecture, server and client side scripting techniques, \nimplementation   technologies   such   as   ASP.NET,   programming   language   (such   as   C#)   and \nrelational  databases. This  is  a  project  with  the  objective  to  develop  a  basic  website  where  a  \nconsumer is provided with a shopping cart application and also to know about the technologies \nused to develop such an application. \nThis document will discuss each of the underlying  technologies to create and implement an e-\ncommerce website.",
+      "metadata": {
+        "id": 4
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n4 \n \n \nACKNOWLEDGEMENTS \n \n \n \nIn   completing   this   graduate   project   I   have   been   fortunate   to   have   help,   support   and   \nencouragement from many people. I would like to acknowledge them for their cooperation. \n \nFirst  and  foremost  deeply  thankful  to  Professor  Dr.  Soon-Ok  Park, for  her  wonderful  guidance  \nduring this project work in field of Computer Science, at Governors State University. I am also \nthankful  for  her  continuous  feedback  and  encouragement  throughout  this  project  work.  Her  \nbroad knowledge and hardworking attitude has left me with very deep impressions and they will \ngreatly benefit me throughout my life. \n \nI would like to thank my project Readers Dr. Kong-Cheng Wong and Dr. Steve Hyzny for their \nsupport throughout this project work.",
+      "metadata": {
+        "id": 5
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n5 \n \n \nTABLE OF CONTENTS \n \nABSTRACT......................................................................................................3 \nACKNOWLDEGEMENT .................................................................................4 \nLIST OF FIGURES...........................................................................................6 \n1.0 INTRDUCTION........................................................................................7 \n2.0  OVERALL DESCSRIPTION......................................................................7 \n2.1 DESCRIPTION.............................................................................7 \n2.2 USING THE CODE.......................................................................8 \n2.3 MASTER PAGE DETAILS............................................................8 \n2.4 WEB PAGES DETAILS.................................................................8",
+      "metadata": {
+        "id": 6
+      }
+    },
+    {
+      "pageContent": "2.3 MASTER PAGE DETAILS............................................................8 \n2.4 WEB PAGES DETAILS.................................................................8 \n2.5 PROJECT DETAILS......................................................................8 \n3.0 SYSTEM REQUREMENT .........................................................................9 \n3.1 USE-CASE DIAGRAM............... ..................................................9 \n4.0 ONLINE SHOPPING APPLICATION........................................................9 \n4.1 HOME PAGE \n4.2 CLOTHING PAGE ( PRDUCTS) \n4.3 ORDER US PAGE \n4.4 CONTACT US PAGE \n4.5 ABOUT US PAGE \n4.6 TRACK FOR ADMIN PAGE \n4.7 REGISTER PAGE  \n4.8 LOGIN \n4.9 ADMIN PAGE \n4.10 ORDER VIEW FOR USER \n4.11 PAYPAL FOR PAYMENT \n4.12 SUCCESS PAGE \n4.13 FAILED PAGE \n5.0 DATA MANAGEMENT............................................................................16 \n5.1 DATA DESCRIPTION \n5.2 DATA OBJECTS \n5.3 DATA TABLE DIAGRAM \n5.4 RELATIONSHIPS",
+      "metadata": {
+        "id": 7
+      }
+    },
+    {
+      "pageContent": "4.13 FAILED PAGE \n5.0 DATA MANAGEMENT............................................................................16 \n5.1 DATA DESCRIPTION \n5.2 DATA OBJECTS \n5.3 DATA TABLE DIAGRAM \n5.4 RELATIONSHIPS \n6.0 NON-FUNCTIONAL / OPERATIONAL REQUIREMENTS......................19 \n6.1 SECURITY \n6.2 EFFICIENCY AND MAINTAINABLITY  \n7.0 CONCLUSION............................................................................................19 \n8.0 REFERENCE................................................................................................21",
+      "metadata": {
+        "id": 8
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n6 \n \n \n \n \nList of Figures \n \nHOME PAGE....................................................................10 \nCLOTHING PAGE (PRODUCTS)......................................10 \nORDER US PAGE..............................................................11 \nCONTACT US PAGE..........................................................11 \nABOUT US PAGE..............................................................12 \nTRACK FOR ADMIN PAGE...............................................12 \nREGISTER PAGE................................................................13 \nLOGIN................................................................................13 \nADMIN PAGE....................................................................14 \nORDER VIEW FOR USER...................................................14 \nPAYPAL FOR PAYMENT....................................................15",
+      "metadata": {
+        "id": 9
+      }
+    },
+    {
+      "pageContent": "ORDER VIEW FOR USER...................................................14 \nPAYPAL FOR PAYMENT....................................................15 \nSUCCESS PAGE...................................................................15 \nFAILED PAGE.....................................................................16",
+      "metadata": {
+        "id": 10
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n7 \n \n1.0 INTRODUCTION: \n \nE-commerce is fast gaining ground as an accepted and used business paradigm. More and more \nbusiness houses are implementing web sites providing functionality for performing commercial \ntransactions  over  the  web.  It  is  reasonable  to  say  that  the  process  of  shopping  on  the  web  is  \nbecoming commonplace. \n \nThe objective of this project is to develop a general purpose e-commerce store where product \nlike  clothes  can  be  bought  from  the  comfort  of  home  through  the  Internet.  However,  for  \nimplementation purposes, this paper will deal with an online shopping for clothes. \n \nAn online store is a virtual store on the Internet where customers can browse the catalog and \nselect products of interest. The selected items may be collected in a shopping cart. At checkout \ntime,  the  items  in  the  shopping  cart  will  be  presented  as  an  order.  At  that  time,  more",
+      "metadata": {
+        "id": 11
+      }
+    },
+    {
+      "pageContent": "time,  the  items  in  the  shopping  cart  will  be  presented  as  an  order.  At  that  time,  more  \ninformation will be needed to complete the transaction. Usually, the customer will be asked to \nfill  or  select  a  billing  address,  a  shipping  address,  a  shipping  option,  and  payment  information  \nsuch as credit card number. An e-mail notification is sent to the customer as soon as the order \nis placed.  \n \n \n \n2.0 OVERALL DESCRIPTION: \n2.1Description: \n Any member can register and view available products. \n Only registered member can purchase multiple products regardless of quantity. \n ContactUs page is available to contact Admin for queries. \n  There are three roles available: Visitor, User and Admin. \n• Visitor can view available products. \n• User can view and purchase products. \n• An Admin has some extra privilege including all privilege of visitor and user. \n Admin  can  add  products,  edit  product  information  and  add/remove  \nproduct.",
+      "metadata": {
+        "id": 12
+      }
+    },
+    {
+      "pageContent": "• An Admin has some extra privilege including all privilege of visitor and user. \n Admin  can  add  products,  edit  product  information  and  add/remove  \nproduct. \n Admin can add user, edit user information and can remove user. \n Admin   can   ship   order   to   user   based   on   order   placed   by   sending   \nconfirmation mail.",
+      "metadata": {
+        "id": 13
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n8 \n \n \n2.2Using the code: \n1. Attach the database in your \"SQL Server Management Studio Express\". \n2. Run the application on Microsoft Visual Studio as web site. \n3. Locate the database. \n \n2.3MasterPage details: \n OnlineShopping Master Page (Similar MasterPage for Visitor, User and Admin) \n2.4Web Pages details: \n Home Page \n AboutUs Page \n Clothing Page \n OrderUs Page \n ContactUs Page \n Admin Page \n Login Page \n Register Page \n Track \n2.5Project Detail: \n \n \n \n\nDesign and Implementation of E-Commerce Site for Online Shopping \n9 \n \n \n \n \n \n \n \n3.0 SYSTEM REQUREMENTS: \n \n 3.1 USE-CASE DIAGRAM:",
+      "metadata": {
+        "id": 14
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n9 \n \n \n \n \n \n \n \n3.0 SYSTEM REQUREMENTS: \n \n 3.1 USE-CASE DIAGRAM: \n \n \n \n \n \n \n \n \n \n \n\nDesign and Implementation of E-Commerce Site for Online Shopping \n10 \n \n4.0  ONLINE SHOPPING APPLICATION: \nAnyone  can  view  Online  Shopping  portal  and  available  products,  but  every  user  must  login  by  \nhis/her Username and password in order to purchase or order products. Unregistered members \ncan register by navigating to registration page. Only Admin will have access to modify roles, by \ndefault developer can only be an ‘Admin’. Once user register site, his default role will be ‘User’. \n4.1 HOMEPAGE: The Home Screen will consist of screen were one can browse through the \nproducts which we have on our website  \n \n \n \nFigure1: Home Page",
+      "metadata": {
+        "id": 15
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n11 \n \n4.2. CLOTHING PAGE (PRODUCTS): This page consists of product details. This page appears \nsame for both visitors and users.\n  \n \n \nFigure 2: Clothing Page \n \n4.3 Order Us Page: Registered users can order desired products from here.  \n \n \nFigure 3: Order Us Page  \n\nDesign and Implementation of E-Commerce Site for Online Shopping \n12 \n \n \n4.4 Contact   Us   Page:   Visitors   and   Registered   users   can   contact   website   owners   or   \nadministrators from here  \n \n \nFigure 4: Contact Us Page  \n4.5 ABOUT US PAGE: This page describes about website and owners  \n \n \nFigure 5: About us Page  \n \n\nDesign and Implementation of E-Commerce Site for Online Shopping \n13 \n \n4.6 Track For Admin Page: Website Administrators can track and ship orders here. \n \n \n \nFigure 6: Tracking Page for Admin.  \n \n \n \n4.7 REGISTER PAGE: New users can register here \n \n \n \nFigure 7: Register Page",
+      "metadata": {
+        "id": 16
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n14 \n \n \n4.8 LOGIN PAGE: Login page for both users and administrators.  \n \n \n \n4.9 Admin  Page: Only difference you see in this page is Role: Admin. User and Admin role will \nbe  checked  once  the  page  was  login  and  Session [“role”]  will  be  either  Admin  or  User.  If  \ncredentials belong to Admin then role will be Admin and if credentials belong to User then \nrole will be User. \n \n \n \nFigure 9: Admin Page \n  \n \n \n \n\nDesign and Implementation of E-Commerce Site for Online Shopping \n15 \n \n4.10 ORDER VIEW FOR USER: Once users order item they are able to see ordered products \nand grand total.  \n \n \n \nFigure 10: Order View for User  \n \n4.11 PAYPAL FOR PAYMENT: Once users orders products they are redirected to payment \npage.  \n \nL \n \nFigure 11: PayPal Page",
+      "metadata": {
+        "id": 17
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n16 \n \n \nFigure 4.12: Success URL \n \n \nFigure 12: Success URL \n \nFIGURE 4.12: Failed URL \n \n \n \nFigure 12: Failed URL \n \n\nDesign and Implementation of E-Commerce Site for Online Shopping \n17 \n \n5.0 Data Management \n5.1 Data Description \n \nThis database consists of  \n Users: User and Admin information is added to database with Unique ID based \non their roles. \n Shopping: Complete products information is stored in this table. \n Orders: Customer ordered products, status and delivery information is stored in \nthis table. \n5.2 Data Objects \n User: ID, UserName, Password, Email, Role \n Shopping: ID, Product, Product ID, Cost, Category, Image, Description \n Orders: ID, Client, Product, Quantity, Price, Date, OrderShipped \n5.3 Database Table Diagram \n \n \n\nDesign and Implementation of E-Commerce Site for Online Shopping \n18 \n \n5.4 Relationships:",
+      "metadata": {
+        "id": 18
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n19 \n \n \n6.0 Non-Functional / Operational Requirements  \n6.1 Security \n Pages  of  the  website  must  be  access  in  the  way  they  were  intended  to  be  accessed.  \nIncluded files shall not be accessed outside of their parent file. \n Administrator  can  only  perform  administrative  task  on  pages  they  are  privileged  to  \naccess. Customers will not be allowed to access the administrator pages. \n6.2 Efficiency and Maintainability \n Page  loads  should  be  returned  and  formatted  in  a  timely  fashion  depending  on  the  \nrequest being made. \n Administrators  will  have  the  ability  to  edit  the  aspects  of  the  order  forms,  product  \ndescriptions, prices and website directly \n \n \n7.0 Conclusion: \n \nThe  Internet  has  become  a  major  resource  in  modern  business,  thus  electronic  shopping  has",
+      "metadata": {
+        "id": 19
+      }
+    },
+    {
+      "pageContent": "descriptions, prices and website directly \n \n \n7.0 Conclusion: \n \nThe  Internet  has  become  a  major  resource  in  modern  business,  thus  electronic  shopping  has  \ngained  significance  not  only  from  the  entrepreneur’s  but  also  from  the  customer’s  point  of  \nview. For the entrepreneur, electronic shopping generates new business opportunities and for \nthe customer, it makes comparative shopping possible.  \n \nAs per a survey, most consumers of online stores are impulsive and usually make a decision to \nstay  on  a  site  within  the  first  few  seconds.  “Website  design  is  like  a  shop  interior.  If  the  shop  \nlooks poor or like hundreds of other shops the customer is most likely to skip to the other site. \nHence we have designed the project to provide the user with easy navigation, retrieval of data \nand  necessary  feedback  as  much  as  possible.  In  this  project,  the  user  is  provided  with  an  e-",
+      "metadata": {
+        "id": 20
+      }
+    },
+    {
+      "pageContent": "and  necessary  feedback  as  much  as  possible.  In  this  project,  the  user  is  provided  with  an  e-\ncommerce  web  site  that  can  be  used  to  buy  books  online.  To  implement  this  as  a  web  \napplication  we  used  ASP.NET  as  the  Technology.  ASP.NET  has  several  advantages  such  as  \nenhanced performance, scalability, built-in security and simplicity.",
+      "metadata": {
+        "id": 21
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n20 \n \n \nTo  build  any  web  application  using  ASP.NET  we  need  a  programming  language  such  as  C#,  \nVB.NET, J# and so on. C# was the language used to build this application. For the client browser \nto connect to the ASP.NET engine we used Microsoft’s Internet Information Services (IIS) as the \nWeb  Server.  ASP.NET  uses  ADO.NET  to  interact  with  the  database  as  it  provides  in-memory \ncaching  that  eliminates  the  need  to  contact  the  database  server  frequently  and  it  can  easily  \ndeploy and maintain an ASP.NET application. SQL was used as back-end database since it is one \nof the most popular databases, and it provides fast data access, easy installation and simplicity.  \n \nA good shopping cart design must be accompanied with user-friendly shopping cart application \nlogic. It should be convenient for the customer to view the contents of their cart and to be able",
+      "metadata": {
+        "id": 22
+      }
+    },
+    {
+      "pageContent": "A good shopping cart design must be accompanied with user-friendly shopping cart application \nlogic. It should be convenient for the customer to view the contents of their cart and to be able \nto  remove  or  add  items  to  their  cart.  The  shopping  cart  application  described  in  this  project  \nprovides a number of features that are designed to make the customer more comfortable. \n \n This   project   helps   in   understanding   the   creation   of   an   interactive   web   page   and   the   \ntechnologies  used  to  implement  it.  The  design  of  the  project  which  includes  Data  Model  and  \nProcess  Model  illustrates  how  the  database  is  built  with  different  tables,  how  the  data  is  \naccessed  and  processed  from  the  tables.  The  building  of  the  project  has  given  me  a  precise  \nknowledge  about  how  ASP.NET  is  used  to  develop  a  website,  how  it  connects  to  the  database",
+      "metadata": {
+        "id": 23
+      }
+    },
+    {
+      "pageContent": "knowledge  about  how  ASP.NET  is  used  to  develop  a  website,  how  it  connects  to  the  database \nto  access  the  data  and  how  the  data  and  web  pages  are  modified  to  provide  the  user  with  a  \nshopping cart application.",
+      "metadata": {
+        "id": 24
+      }
+    },
+    {
+      "pageContent": "Design and Implementation of E-Commerce Site for Online Shopping \n21 \n \n8.0 References: \n \n1. Anne Boehm, Joel Murach, Murach’s ASP.NET 4 Web Programming with C# 2010, 4th \nEdition, Murach, 2010. \n2. Bryan Syverson, Joel Murach, Murach’s SQL Server 2012 for developers, Murach, 2012. \n3. http://www.w3schools.com/ \n4. http://msdn.microsoft.com/  \n5. http://agilemodeling.com/  \n6. http://csharp-video-tutorials.blogspot.co.uk/p/free-dot-net-video-tutorials-for.html \n7. http://csharp-video-tutorials.blogspot.com/p/free-aspnet-video-tutorial.html \n8. http://csharp-video-tutorials.blogspot.com/p/free-adonet-video-tutorial.html",
+      "metadata": {
+        "id": 25
+      }
+    }
+  ],
+  "timestamp": "2025-09-03T08:33:07.622Z"
+}

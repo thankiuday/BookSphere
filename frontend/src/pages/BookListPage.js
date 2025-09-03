@@ -89,7 +89,7 @@ const BookListPage = () => {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search books, authors, or subjects..."
+                placeholder="Search books or authors..."
                 className="input-field pl-9 sm:pl-10 text-sm sm:text-base"
               />
             </div>
@@ -131,12 +131,6 @@ const BookListPage = () => {
               {books.map((book) => (
                 <div key={book._id} className="card-hover p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center space-x-2">
-                      <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-primary-900 flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-gray-500 truncate">
-                        {book.subject || 'General'}
-                      </span>
-                    </div>
                     {book.publicationYear && (
                       <span className="text-xs sm:text-sm text-gray-500 flex-shrink-0">
                         {book.publicationYear}

@@ -8,7 +8,6 @@ const AuthorUploadPage = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    subject: '',
     publicationYear: '',
     tags: ''
   });
@@ -59,7 +58,7 @@ const AuthorUploadPage = () => {
       uploadFormData.append('pdfFile', selectedFile);
       uploadFormData.append('title', formData.title);
       uploadFormData.append('description', formData.description);
-      uploadFormData.append('subject', formData.subject);
+
       uploadFormData.append('publicationYear', formData.publicationYear);
       uploadFormData.append('tags', formData.tags);
 
@@ -112,7 +111,6 @@ const AuthorUploadPage = () => {
     setFormData({
       title: '',
       description: '',
-      subject: '',
       publicationYear: '',
       tags: ''
     });
@@ -295,21 +293,7 @@ const AuthorUploadPage = () => {
               />
             </div>
 
-            {/* Subject */}
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                className="input-field"
-                placeholder="e.g., Computer Science, Literature, Mathematics"
-              />
-            </div>
+
 
             {/* Publication Year */}
             <div>

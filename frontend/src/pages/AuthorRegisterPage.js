@@ -9,7 +9,7 @@ const AuthorRegisterPage = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    department: ''
+    genre: ''
   });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
@@ -54,9 +54,9 @@ const AuthorRegisterPage = () => {
       newErrors.confirmPassword = 'Passwords do not match';
     }
 
-    // Department validation (optional but if provided, validate)
-    if (formData.department.trim() && formData.department.trim().length < 2) {
-      newErrors.department = 'Department name must be at least 2 characters long';
+    // Genre validation (optional but if provided, validate)
+    if (formData.genre.trim() && formData.genre.trim().length < 2) {
+      newErrors.genre = 'Genre must be at least 2 characters long';
     }
 
     setErrors(newErrors);
@@ -216,29 +216,29 @@ const AuthorRegisterPage = () => {
               )}
             </div>
 
-            {/* Department Field */}
+            {/* Genre Field */}
             <div>
-              <label htmlFor="department" className="block text-sm font-medium text-gray-700 mb-2">
-                Department (Optional)
+              <label htmlFor="genre" className="block text-sm font-medium text-gray-700 mb-2">
+                Genre (Optional)
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Building className="h-5 w-5 text-gray-400" />
+                  <BookOpen className="h-5 w-5 text-gray-400" />
                 </div>
                 <input
-                  id="department"
-                  name="department"
+                  id="genre"
+                  name="genre"
                   type="text"
-                  value={formData.department}
+                  value={formData.genre}
                   onChange={handleChange}
-                  className={`input-field pl-10 ${errors.department ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''}`}
-                  placeholder="e.g., Computer Science, Literature"
+                  className={`input-field pl-10 ${errors.genre ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  placeholder="e.g., Fiction, Non-Fiction, Self-Help, Business"
                 />
               </div>
-              {errors.department && (
+              {errors.genre && (
                 <p className="mt-1 text-xs sm:text-sm text-red-600 flex items-center">
                   <AlertCircle className="h-3 w-3 sm:h-4 sm:w-4 mr-1 flex-shrink-0" />
-                  {errors.department}
+                  {errors.genre}
                 </p>
               )}
             </div>

@@ -1,13 +1,13 @@
-# BookSphere - Chat with a Book Platform
+# BookSphere - AI-Powered Book Chat Platform
 
-A production-ready MERN stack application for Garden City University that allows authors to upload books and readers to chat with book content through AI-powered conversations.
+A production-ready MERN stack application that allows authors worldwide to upload books and readers to chat with book content through AI-powered conversations.
 
 ## Features
 
 - **Author Portal**: Upload PDF books, get unique subdomains and QR codes
 - **Reader Interface**: Chat with book content through AI-powered conversations
 - **Content Restriction**: AI responses are limited to book content only
-- **Modern UI**: Tailwind CSS design matching Garden City University theme
+- **Modern UI**: Responsive Tailwind CSS design for global authors and readers
 - **Production Ready**: Configured for deployment on Render
 
 ## Tech Stack
@@ -106,4 +106,4 @@ NODE_ENV=development
 
 ## License
 
-MIT License - Garden City University
+MIT License - BookSphere Team

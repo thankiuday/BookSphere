@@ -10,7 +10,7 @@ const generateQRCode = async (url, options = {}) => {
       quality: 0.92,
       margin: 1,
       color: {
-        dark: '#002D62', // Garden City University deep blue
+        dark: '#1e40af', // BookSphere brand blue
         light: '#FFFFFF'
       },
       width: 300
@@ -37,7 +37,7 @@ const generateAndSaveQRCode = async (url, s3Utils, folder = 'qr-codes') => {
       quality: 0.92,
       margin: 1,
       color: {
-        dark: '#002D62', // Garden City University deep blue
+        dark: '#1e40af', // BookSphere brand blue
         light: '#FFFFFF'
       },
       width: 300
@@ -124,7 +124,7 @@ const generateStyledQRCode = async (url, style = 'default') => {
   try {
     const styles = {
       default: {
-        color: { dark: '#002D62', light: '#FFFFFF' },
+        color: { dark: '#1e40af', light: '#FFFFFF' },
         width: 300
       },
       green: {
@@ -136,7 +136,7 @@ const generateStyledQRCode = async (url, style = 'default') => {
         width: 300
       },
       light: {
-        color: { dark: '#002D62', light: '#F9F9F9' },
+        color: { dark: '#1e40af', light: '#F9F9F9' },
         width: 300
       }
     };

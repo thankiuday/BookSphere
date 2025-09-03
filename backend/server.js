@@ -112,7 +112,7 @@ mongoose.connect(config.mongodb.uri)
     console.log('✅ Connected to MongoDB');
     app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`);
-      console.log(`📚 BookSphere API ready for Garden City University`);
+      console.log(`📚 BookSphere API ready for global authors and readers`);
       console.log(`🌍 Environment: ${config.server.nodeEnv}`);
     });
   })

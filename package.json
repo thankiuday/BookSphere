@@ -1,7 +1,7 @@
 {
   "name": "booksphere-chat-platform",
   "version": "1.0.0",
-  "description": "Chat with a Book platform for Garden City University",
+  "description": "AI-Powered Book Chat Platform for Authors Worldwide",
   "main": "backend/server.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
@@ -11,8 +11,8 @@
     "start": "cd backend && npm start",
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install"
   },
-  "keywords": ["mern", "chat", "books", "ai", "garden-city-university"],
-  "author": "Garden City University",
+      "keywords": ["mern", "chat", "books", "ai", "authors", "readers", "global-platform"],
+      "author": "BookSphere Team",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"

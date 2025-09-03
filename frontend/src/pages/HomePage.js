@@ -24,8 +24,8 @@ const HomePage = () => {
     },
     {
       icon: Users,
-      title: 'Academic Community',
-      description: 'Built for authors and readers globally across academic and non-academic communities.',
+      title: 'Global Author Community',
+      description: 'Connect with authors and readers worldwide, from fiction writers to non-fiction experts.',
       color: 'from-green-600 to-green-800'
     }
   ];
@@ -34,7 +34,7 @@ const HomePage = () => {
     { label: 'Books Uploaded', value: '100+', icon: BookOpen },
     { label: 'Active Authors', value: '50+', icon: Users },
     { label: 'Chat Sessions', value: '1000+', icon: MessageCircle },
-    { label: 'University Support', value: '100%', icon: Award }
+    { label: 'Global Reach', value: '25+ Countries', icon: Award }
   ];
 
   return (
@@ -48,7 +48,7 @@ const HomePage = () => {
               Chat with a Book
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white/90 max-w-3xl mx-auto px-4 leading-relaxed">
-              Transform how students and researchers interact with academic content through AI-powered conversations.
+              Transform how readers interact with your books through AI-powered conversations. Connect with your audience globally.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
               <Link
@@ -76,7 +76,7 @@ const HomePage = () => {
               How It Works
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-              BookSphere revolutionizes academic content consumption through intelligent AI conversations.
+              BookSphere revolutionizes how authors share their knowledge and how readers engage with books through intelligent AI conversations.
             </p>
           </div>
 
@@ -129,10 +129,10 @@ const HomePage = () => {
       <section className="py-16 sm:py-20 bg-gradient-mixed text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-4 sm:mb-6">
-            Ready to Transform Your Academic Content?
+            Ready to Transform How Readers Engage with Your Books?
           </h2>
           <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-white/90">
-            Join our innovative approach to digital learning and research.
+            Join our innovative platform for authors to share knowledge and connect with readers worldwide.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link
@@ -164,7 +164,7 @@ const HomePage = () => {
               </span>
             </div>
             <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">
-              AI-Powered Book Chat Platform
+              AI-Powered Platform for Authors to Connect with Readers
             </p>
             <p className="text-xs sm:text-sm text-gray-500">
               © 2024 BookSphere. All rights reserved.

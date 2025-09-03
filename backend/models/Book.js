@@ -82,10 +82,6 @@ const bookSchema = new mongoose.Schema({
     type: String,
     trim: true
   }],
-  subject: {
-    type: String,
-    trim: true
-  },
   publicationYear: {
     type: Number,
     min: [1900, 'Publication year must be after 1900'],

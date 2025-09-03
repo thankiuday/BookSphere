@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2, RefreshCw, Download, FileText, User as UserIcon } from 'lucide-react';
+import { Send, Bot, User, Loader2, RefreshCw, FileText, User as UserIcon } from 'lucide-react';
 import api from '../utils/api';
 import { toast } from 'react-hot-toast';
 
@@ -52,13 +52,7 @@ Feel free to start asking questions about the book!`,
     scrollToBottom();
   }, [messages]);
 
-  const handleDownloadPDF = () => {
-    if (book.downloadUrl) {
-      window.open(book.downloadUrl, '_blank');
-    } else {
-      toast.error('PDF download link not available');
-    }
-  };
+
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -155,16 +149,7 @@ Feel free to start asking questions about the book!`,
             </div>
           </div>
           <div className="flex items-center space-x-1 flex-shrink-0">
-            {book?.downloadUrl && (
-              <button
-                onClick={handleDownloadPDF}
-                className="flex items-center space-x-1 px-2 py-1 text-accent-900 hover:text-accent-800 hover:bg-accent-50 rounded-lg transition-colors duration-200"
-                title="Download PDF"
-              >
-                <Download className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="text-xs hidden sm:inline">Download</span>
-              </button>
-            )}
+
             <button
               onClick={clearChat}
               className="flex items-center space-x-1 px-2 py-1 text-gray-600 hover:text-primary-900 hover:bg-primary-50 rounded-lg transition-colors duration-200"

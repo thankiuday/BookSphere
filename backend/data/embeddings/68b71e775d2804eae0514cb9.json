@@ -1,0 +1,576 @@
+{
+  "bookId": "68b71e775d2804eae0514cb9",
+  "documents": [
+    {
+      "pageContent": "Pro  \nMERN Stack\nFull Stack Web App Development with \nMongo, Express, React, and Node\n—\nVasan Subramanian \n\nPro MERN Stack\nFull Stack Web App Development \nwith Mongo, Express, React,  \nand Node\nVasan Subramanian",
+      "metadata": {
+        "id": 0
+      }
+    },
+    {
+      "pageContent": "Pro MERN Stack\nVasan Subramanian\nBangalore, Karnataka, India\nISBN-13 (pbk): 978-1-4842-2652-0  ISBN-13 (electronic): 978-1-4842-2653-7\nDOI 10.1007/978-1-4842-2653-7\nLibrary of Congress Control Number: 2017933833\nCopyright © 2017 by Vasan Subramanian\nThis work is subject to copyright. All rights are reserved by the Publisher, whether the whole \nor part of the material is concerned, specifically the rights of translation, reprinting, reuse of \nillustrations, recitation, broadcasting, reproduction on microfilms or in any other physical \nway, and transmission or information storage and retrieval, electronic adaptation, computer \nsoftware, or by similar or dissimilar methodology now known or hereafter developed.\nTrademarked names, logos, and images may appear in this book. Rather than use a trademark \nsymbol with every occurrence of a trademarked name, logo, or image we use the names, logos, \nand images only in an editorial fashion and to the benefit of the trademark owner, with no",
+      "metadata": {
+        "id": 1
+      }
+    },
+    {
+      "pageContent": "symbol with every occurrence of a trademarked name, logo, or image we use the names, logos, \nand images only in an editorial fashion and to the benefit of the trademark owner, with no \nintention of infringement of the trademark.\nThe use in this publication of trade names, trademarks, service marks, and similar terms, even \nif they are not identified as such, is not to be taken as an expression of opinion as to whether or \nnot they are subject to proprietary rights.\nWhile the advice and information in this book are believed to be true and accurate at the \ndate of publication, neither the authors nor the editors nor the publisher can accept any legal \nresponsibility for any errors or omissions that may be made. The publisher makes no warranty, \nexpress or implied, with respect to the material contained herein.\nManaging Director: Welmoed Spahr\nEditorial Director: Todd Green\nAcquisitions Editor: Pramila Balan\nDevelopment Editor: Poonam Jain\nTechnical Reviewer: Anshul Chanchlani",
+      "metadata": {
+        "id": 2
+      }
+    },
+    {
+      "pageContent": "Managing Director: Welmoed Spahr\nEditorial Director: Todd Green\nAcquisitions Editor: Pramila Balan\nDevelopment Editor: Poonam Jain\nTechnical Reviewer: Anshul Chanchlani\nCoordinating Editor: Prachi Mehta \nCopy Editor: Mary Behr\nCompositor: SPi Global\nIndexer: SPi Global\nArtist: SPi Global\nCover image designed by Freepik\nDistributed to the book trade worldwide by Springer Science+Business Media New York,  \n233 Spring Street, 6th Floor, New York, NY 10013. Phone 1-800-SPRINGER, fax (201) 348-4505, \ne-mail orders-ny@springer-sbm.com, or visit www.springeronline.com. Apress Media, LLC is a \nCalifornia LLC and the sole member (owner) is Springer Science + Business Media Finance Inc \n(SSBM Finance Inc). SSBM Finance Inc is a Delaware corporation.\nFor information on translations, please e-mail rights@apress.com, or visit http://www.apress.\ncom/rights-permissions. \nApress titles may be purchased in bulk for academic, corporate, or promotional use. eBook versions",
+      "metadata": {
+        "id": 3
+      }
+    },
+    {
+      "pageContent": "com/rights-permissions. \nApress titles may be purchased in bulk for academic, corporate, or promotional use. eBook versions \nand licenses are also available for most titles. For more information, reference our Print and eBook \nBulk Sales web page at http://www.apress.com/bulk-sales.\nAny source code or other supplementary material referenced by the author in this book is available \nto readers on GitHub via the book’s product page, located at www.apress.com/978-1-4842-2652-0. \nFor more detailed information, please visit http://www.apress.com/source-code.\nPrinted on acid-free paper",
+      "metadata": {
+        "id": 4
+      }
+    },
+    {
+      "pageContent": "To Sandeep and Fazle.",
+      "metadata": {
+        "id": 5
+      }
+    },
+    {
+      "pageContent": "v\nContents at a Glance\nAbout the Author ���������������������������������������������������������������������������xvii\n ■Chapter 1: Introduction ������������������������������������������������������������������1\n ■Chapter 2: Hello World ������������������������������������������������������������������17\n ■Chapter 3: React Components ������������������������������������������������������37\n ■Chapter 4: React State ������������������������������������������������������������������55\n ■Chapter 5: Express REST APIs ������������������������������������������������������69\n ■Chapter 6: Using MongoDB �����������������������������������������������������������93\n ■Chapter 7: Modularization and Webpack �����������������������������������115\n ■Chapter 8: Routing with React Router ����������������������������������������151\n ■Chapter 9: Forms ������������������������������������������������������������������������173",
+      "metadata": {
+        "id": 6
+      }
+    },
+    {
+      "pageContent": "■Chapter 8: Routing with React Router ����������������������������������������151\n ■Chapter 9: Forms ������������������������������������������������������������������������173\n ■Chapter 10: React-Bootstrap ������������������������������������������������������207\n ■Chapter 11: Server Rendering ����������������������������������������������������245\n ■Chapter 12: Advanced Features �������������������������������������������������275\n ■Chapter 13: Looking Ahead ��������������������������������������������������������319\nIndex ����������������������������������������������������������������������������������������������325",
+      "metadata": {
+        "id": 7
+      }
+    },
+    {
+      "pageContent": "vii\nContents\nAbout the Author ���������������������������������������������������������������������������xvii\n ■Chapter 1: Introduction ������������������������������������������������������������������1\nWhat Is MERN? ����������������������������������������������������������������������������������������1\nWho Should Read This Book ��������������������������������������������������������������������2\nStructure of the Book ������������������������������������������������������������������������������2\nConventions ���������������������������������������������������������������������������������������������3\nWhat You Need ����������������������������������������������������������������������������������������5\nMERN Components ����������������������������������������������������������������������������������5\nReact ������������������������������������������������������������������������������������������������������������������������5",
+      "metadata": {
+        "id": 8
+      }
+    },
+    {
+      "pageContent": "React ������������������������������������������������������������������������������������������������������������������������5\nNode�js ����������������������������������������������������������������������������������������������������������������������7\nExpress ���������������������������������������������������������������������������������������������������������������������9\nMongoDB ����������������������������������������������������������������������������������������������������������������10\nTools and Libraries �������������������������������������������������������������������������������������������������12\nWhy MERN? �������������������������������������������������������������������������������������������13\nJavaScript Everywhere �������������������������������������������������������������������������������������������13\nJSON Everywhere ���������������������������������������������������������������������������������������������������14",
+      "metadata": {
+        "id": 9
+      }
+    },
+    {
+      "pageContent": "JSON Everywhere ���������������������������������������������������������������������������������������������������14\nNode�js Performance ����������������������������������������������������������������������������������������������14\nThe npm Ecosystem �����������������������������������������������������������������������������������������������14\nIsomorphic ��������������������������������������������������������������������������������������������������������������14\nIt’s not a Framework! ���������������������������������������������������������������������������������������������15\nSummary �����������������������������������������������������������������������������������������������15",
+      "metadata": {
+        "id": 10
+      }
+    },
+    {
+      "pageContent": "■ Contents\nviii\n ■Chapter 2: Hello World ������������������������������������������������������������������17\nServer-Less Hello World ������������������������������������������������������������������������17\nServer Setup �����������������������������������������������������������������������������������������20\nnvm �������������������������������������������������������������������������������������������������������������������������21\nNode�js ��������������������������������������������������������������������������������������������������������������������21\nProject ��������������������������������������������������������������������������������������������������������������������22\nnpm ������������������������������������������������������������������������������������������������������������������������22\nExpress �������������������������������������������������������������������������������������������������������������������24",
+      "metadata": {
+        "id": 11
+      }
+    },
+    {
+      "pageContent": "Express �������������������������������������������������������������������������������������������������������������������24\nBuild-Time JSX Compilation ������������������������������������������������������������������26\nSeparate Script File ������������������������������������������������������������������������������������������������27\nTransform ���������������������������������������������������������������������������������������������������������������28\nAutomate ����������������������������������������������������������������������������������������������������������������29\nReact Library ����������������������������������������������������������������������������������������������������������30\nES2015 ��������������������������������������������������������������������������������������������������30\nSummary �����������������������������������������������������������������������������������������������33",
+      "metadata": {
+        "id": 12
+      }
+    },
+    {
+      "pageContent": "Summary �����������������������������������������������������������������������������������������������33\nAnswers to Exercises ����������������������������������������������������������������������������34\nExercise: JSX ����������������������������������������������������������������������������������������������������������34\nExercise: npm ���������������������������������������������������������������������������������������������������������34\nExercise: Express ����������������������������������������������������������������������������������������������������35\nExercise: Babel �������������������������������������������������������������������������������������������������������35\nExercise: ES2015 ����������������������������������������������������������������������������������������������������36\n ■Chapter 3: React Components ������������������������������������������������������37",
+      "metadata": {
+        "id": 13
+      }
+    },
+    {
+      "pageContent": "■Chapter 3: React Components ������������������������������������������������������37\nIssue Tracker �����������������������������������������������������������������������������������������37\nReact Classes ����������������������������������������������������������������������������������������38\nComposing Components �����������������������������������������������������������������������40",
+      "metadata": {
+        "id": 14
+      }
+    },
+    {
+      "pageContent": "■ Contents\nix\nPassing Data �����������������������������������������������������������������������������������������42\nUsing Properties �����������������������������������������������������������������������������������������������������42\nProperty Validation��������������������������������������������������������������������������������������������������44\nUsing Children ��������������������������������������������������������������������������������������������������������45\nDynamic Composition����������������������������������������������������������������������������47\nSummary �����������������������������������������������������������������������������������������������51\nAnswers to Exercises ����������������������������������������������������������������������������51\nExercise: React Classes ������������������������������������������������������������������������������������������51",
+      "metadata": {
+        "id": 15
+      }
+    },
+    {
+      "pageContent": "Exercise: React Classes ������������������������������������������������������������������������������������������51\nExercise: Passing Data �������������������������������������������������������������������������������������������52\nExercise: Dynamic Composition������������������������������������������������������������������������������52\n ■Chapter 4: React State ������������������������������������������������������������������55\nSetting State ������������������������������������������������������������������������������������������55\nAsync State Initialization �����������������������������������������������������������������������58\nEvent Handling ��������������������������������������������������������������������������������������60\nCommunicating from Child to Parent ����������������������������������������������������60\nStateless Components���������������������������������������������������������������������������63",
+      "metadata": {
+        "id": 16
+      }
+    },
+    {
+      "pageContent": "Communicating from Child to Parent ����������������������������������������������������60\nStateless Components���������������������������������������������������������������������������63\nDesigning Components �������������������������������������������������������������������������65\nState vs� props ��������������������������������������������������������������������������������������������������������65\nComponent Hierarchy ���������������������������������������������������������������������������������������������65\nCommunication �������������������������������������������������������������������������������������������������������66\nStateless Components ��������������������������������������������������������������������������������������������66\nSummary �����������������������������������������������������������������������������������������������66\nAnswers to Exercises ����������������������������������������������������������������������������67",
+      "metadata": {
+        "id": 17
+      }
+    },
+    {
+      "pageContent": "Answers to Exercises ����������������������������������������������������������������������������67\nExercise: Setting State��������������������������������������������������������������������������������������������67\nExercise: Communicate Child to Parent ������������������������������������������������������������������68",
+      "metadata": {
+        "id": 18
+      }
+    },
+    {
+      "pageContent": "■ Contents\nx\n ■Chapter 5: Express REST APIs ������������������������������������������������������69\nREST ������������������������������������������������������������������������������������������������������69\nResource Based ������������������������������������������������������������������������������������������������������69\nHTTP Methods as Actions ���������������������������������������������������������������������������������������70\nJSON �����������������������������������������������������������������������������������������������������������������������71\nExpress ��������������������������������������������������������������������������������������������������72\nRouting �������������������������������������������������������������������������������������������������������������������72\nHandler Function ����������������������������������������������������������������������������������������������������73",
+      "metadata": {
+        "id": 19
+      }
+    },
+    {
+      "pageContent": "Handler Function ����������������������������������������������������������������������������������������������������73\nMiddleware �������������������������������������������������������������������������������������������������������������75\nThe List API ��������������������������������������������������������������������������������������������76\nAutomatic Server Restart ���������������������������������������������������������������������������������������77\nTesting ��������������������������������������������������������������������������������������������������������������������77\nThe Create API ���������������������������������������������������������������������������������������80\nUsing the List API ����������������������������������������������������������������������������������82\nUsing the Create API ������������������������������������������������������������������������������84",
+      "metadata": {
+        "id": 20
+      }
+    },
+    {
+      "pageContent": "Using the Create API ������������������������������������������������������������������������������84\nError Handling ���������������������������������������������������������������������������������������85\nSummary �����������������������������������������������������������������������������������������������88\nAnswers to Exercises ����������������������������������������������������������������������������89\nExercise: The List API ����������������������������������������������������������������������������������������������89\nExercise: Create API ������������������������������������������������������������������������������������������������90\nExercise: Using the List API ������������������������������������������������������������������������������������90\nExercise: Using the Create API ��������������������������������������������������������������������������������91\nExercise: Error Handling �����������������������������������������������������������������������������������������91",
+      "metadata": {
+        "id": 21
+      }
+    },
+    {
+      "pageContent": "Exercise: Error Handling �����������������������������������������������������������������������������������������91\n ■Chapter 6: Using MongoDB �����������������������������������������������������������93\nMongoDB Basics �����������������������������������������������������������������������������������93\nDocuments �������������������������������������������������������������������������������������������������������������93\nCollections ��������������������������������������������������������������������������������������������������������������94\nQuery Language �����������������������������������������������������������������������������������������������������94",
+      "metadata": {
+        "id": 22
+      }
+    },
+    {
+      "pageContent": "■ Contents\nxi\nInstallation ��������������������������������������������������������������������������������������������������������������95\nThe mongo Shell �����������������������������������������������������������������������������������������������������95\nShell Scripting ��������������������������������������������������������������������������������������������������������99\nSchema Initialization �����������������������������������������������������������������������������99\nMongoDB Node�js Driver ���������������������������������������������������������������������101\nCallbacks ��������������������������������������������������������������������������������������������������������������103\nPromises ���������������������������������������������������������������������������������������������������������������104\nGenerator and co Module �������������������������������������������������������������������������������������104",
+      "metadata": {
+        "id": 23
+      }
+    },
+    {
+      "pageContent": "Generator and co Module �������������������������������������������������������������������������������������104\nThe async Module �������������������������������������������������������������������������������������������������105\nReading from MongoDB ����������������������������������������������������������������������107\nWriting to MongoDB ����������������������������������������������������������������������������109\nSummary ���������������������������������������������������������������������������������������������111\nAnswers to Exercises ��������������������������������������������������������������������������112\nExercise: Mongo Shell ������������������������������������������������������������������������������������������112\nExercise: Schema Initialization �����������������������������������������������������������������������������112\nExercise: Reading from MongoDB ������������������������������������������������������������������������113",
+      "metadata": {
+        "id": 24
+      }
+    },
+    {
+      "pageContent": "Exercise: Reading from MongoDB ������������������������������������������������������������������������113\nExercise: Writing to MongoDB ������������������������������������������������������������������������������113\n ■Chapter 7: Modularization and Webpack �����������������������������������115\nServer-Side Modules ���������������������������������������������������������������������������115\nIntroduction to Webpack ���������������������������������������������������������������������117\nUsing Webpack Manually ��������������������������������������������������������������������118\nTransform and Bundle �������������������������������������������������������������������������120\nLibraries Bundle ����������������������������������������������������������������������������������125\nHot Module Replacement ��������������������������������������������������������������������129\nHMR Using Middleware �����������������������������������������������������������������������132",
+      "metadata": {
+        "id": 25
+      }
+    },
+    {
+      "pageContent": "Hot Module Replacement ��������������������������������������������������������������������129\nHMR Using Middleware �����������������������������������������������������������������������132\nComparison of HMR Alternatives ��������������������������������������������������������������������������133\nDebugging �������������������������������������������������������������������������������������������134\nServer-Side ES2015 ����������������������������������������������������������������������������135",
+      "metadata": {
+        "id": 26
+      }
+    },
+    {
+      "pageContent": "■ Contents\nxii\nESLint ��������������������������������������������������������������������������������������������������140\nEnvironment ���������������������������������������������������������������������������������������������������������142\nSummary ���������������������������������������������������������������������������������������������147\nAnswers to Exercises ��������������������������������������������������������������������������148\nExercise: Transform and Bundle ���������������������������������������������������������������������������148\nExercise: Hot Module Replacement ����������������������������������������������������������������������148\nExercise: Server-Side ES2015 ������������������������������������������������������������������������������149\nExercise: ESLint ����������������������������������������������������������������������������������������������������150\n ■Chapter 8: Routing with React Router ����������������������������������������151",
+      "metadata": {
+        "id": 27
+      }
+    },
+    {
+      "pageContent": "■Chapter 8: Routing with React Router ����������������������������������������151\nRouting Techniques �����������������������������������������������������������������������������152\nSimple Routing ������������������������������������������������������������������������������������152\nRoute Parameters ��������������������������������������������������������������������������������154\nRoute Query String ������������������������������������������������������������������������������157\nProgrammatic Navigation ��������������������������������������������������������������������161\nNested Routes �������������������������������������������������������������������������������������164\nBrowser History �����������������������������������������������������������������������������������167\nSummary ���������������������������������������������������������������������������������������������169\nAnswers to Exercises ��������������������������������������������������������������������������169",
+      "metadata": {
+        "id": 28
+      }
+    },
+    {
+      "pageContent": "Answers to Exercises ��������������������������������������������������������������������������169\nExercise: Route Parameters ����������������������������������������������������������������������������������169\nExercise: Route Query String ��������������������������������������������������������������������������������169\nExercise: Programmatic Navigation ����������������������������������������������������������������������170\n ■Chapter 9: Forms ������������������������������������������������������������������������173\nMore Filters in the List API ������������������������������������������������������������������173\nFilter Form �������������������������������������������������������������������������������������������174\nThe Get API ������������������������������������������������������������������������������������������180\nEdit Page ���������������������������������������������������������������������������������������������182",
+      "metadata": {
+        "id": 29
+      }
+    },
+    {
+      "pageContent": "■ Contents\nxiii\nUI Components ������������������������������������������������������������������������������������186\nNumber Input ��������������������������������������������������������������������������������������������������������186\nDate Input �������������������������������������������������������������������������������������������������������������190\nUpdate API �������������������������������������������������������������������������������������������195\nUsing Update API ���������������������������������������������������������������������������������198\nDelete API ��������������������������������������������������������������������������������������������200\nUsing the Delete API ����������������������������������������������������������������������������201\nSummary ���������������������������������������������������������������������������������������������203\nAnswers to Exercises ��������������������������������������������������������������������������203",
+      "metadata": {
+        "id": 30
+      }
+    },
+    {
+      "pageContent": "Answers to Exercises ��������������������������������������������������������������������������203\nExercise: More Filters in List API ��������������������������������������������������������������������������203\nExercise: Filter Form ���������������������������������������������������������������������������������������������203\nExercise: Edit Page �����������������������������������������������������������������������������������������������204\nExercise: Date Input ����������������������������������������������������������������������������������������������204\nExercise: Update API ���������������������������������������������������������������������������������������������205\n ■Chapter 10: React-Bootstrap ������������������������������������������������������207\nBootstrap Installation ��������������������������������������������������������������������������207\nNavigation �������������������������������������������������������������������������������������������210",
+      "metadata": {
+        "id": 31
+      }
+    },
+    {
+      "pageContent": "Navigation �������������������������������������������������������������������������������������������210\nTable and Panel �����������������������������������������������������������������������������������216\nForms ��������������������������������������������������������������������������������������������������218\nGrid-Based Forms �������������������������������������������������������������������������������������������������218\nInline Forms ����������������������������������������������������������������������������������������������������������222\nHorizontal Forms ��������������������������������������������������������������������������������������������������224\nAlerts ���������������������������������������������������������������������������������������������������229\nValidations ������������������������������������������������������������������������������������������������������������229",
+      "metadata": {
+        "id": 32
+      }
+    },
+    {
+      "pageContent": "Validations ������������������������������������������������������������������������������������������������������������229\nResults ������������������������������������������������������������������������������������������������������������������231\nModals �������������������������������������������������������������������������������������������������237\nSummary ���������������������������������������������������������������������������������������������242",
+      "metadata": {
+        "id": 33
+      }
+    },
+    {
+      "pageContent": "■ Contents\nxiv\nAnswers to Exercises ��������������������������������������������������������������������������243\nExercise: Navigation ���������������������������������������������������������������������������������������������243\nExercise: Grid-Based Forms ���������������������������������������������������������������������������������243\nExercise: Inline Forms ������������������������������������������������������������������������������������������243\nExercise: Modals ���������������������������������������������������������������������������������������������������244\n ■Chapter 11: Server Rendering ����������������������������������������������������245\nBasic Server Rendering �����������������������������������������������������������������������245\nHandling State �������������������������������������������������������������������������������������250\nInitial State ������������������������������������������������������������������������������������������252",
+      "metadata": {
+        "id": 34
+      }
+    },
+    {
+      "pageContent": "Initial State ������������������������������������������������������������������������������������������252\nServer-Side Bundle �����������������������������������������������������������������������������254\nBack-End HMR ������������������������������������������������������������������������������������256\nRouted Server Rendering ��������������������������������������������������������������������260\nEncapsulated Fetch �����������������������������������������������������������������������������268\nSummary ���������������������������������������������������������������������������������������������272\nAnswers to Exercises ��������������������������������������������������������������������������273\nBack-End HMR ������������������������������������������������������������������������������������������������������273\nRouted Server Rendering �������������������������������������������������������������������������������������273",
+      "metadata": {
+        "id": 35
+      }
+    },
+    {
+      "pageContent": "Routed Server Rendering �������������������������������������������������������������������������������������273\n ■Chapter 12: Advanced Features �������������������������������������������������275\nMongoDB Aggregate����������������������������������������������������������������������������275\nPagination �������������������������������������������������������������������������������������������284\nHigher Order Components �������������������������������������������������������������������288\nSearch Bar �������������������������������������������������������������������������������������������297\nGoogle Sign-In �������������������������������������������������������������������������������������303\nSession Handling ���������������������������������������������������������������������������������310\nSummary ���������������������������������������������������������������������������������������������317",
+      "metadata": {
+        "id": 36
+      }
+    },
+    {
+      "pageContent": "■ Contents\nxv\n ■Chapter 13: Looking Ahead ��������������������������������������������������������319\nMongoose ��������������������������������������������������������������������������������������������319\nFlux ������������������������������������������������������������������������������������������������������320\nDeployment �����������������������������������������������������������������������������������������322\nmern�io ������������������������������������������������������������������������������������������������323\nThat’s All, Folks! ����������������������������������������������������������������������������������324\nIndex ����������������������������������������������������������������������������������������������325",
+      "metadata": {
+        "id": 37
+      }
+    },
+    {
+      "pageContent": "xvii\nAbout the Author\nVasan Subramanian has experienced all kinds of \nprogramming, from 8-bit, hand-assembled code on \nan 8085 to AWS Lambda. He not only loves to solve \nproblems using software, but he also looks for the right \nmix of technology and processes to make a software \nproduct team most efficient. He learned software \ndevelopment at companies such as Corel, Wipro, and \nBarracuda Networks, not just as a programmer but also \nas a leader of teams at those companies.\nVasan studied at IIT Madras and IIM Bangalore.  \nIn his current job as CTO at Accel, he mentors startups \non all things tech. While not mentoring or coding  \n(or writing books!), Vasan runs half marathons and \nplays 5-a-side soccer. He can be contacted at  \nvasan.promern@gmail.com for boquets, brickbats, or \nanything in-between.",
+      "metadata": {
+        "id": 38
+      }
+    },
+    {
+      "pageContent": "1\n© Vasan Subramanian 2017 \nV. Subramanian, Pro MERN Stack, DOI 10.1007/978-1-4842-2653-7_1\nCHAPTER 1\nIntroduction\nWeb application development is not what it used to be even a couple of years back. \nToday, there are so many options, and the uninitiated are often confused about what’s \ngood for them. This applies not just to the broad stack (the various tiers or technologies \nused), but also to the tools that aid in development; there are so many choices. This book \nstakes a claim that the MERN stack is great for developing a complete web application, \nand it takes the reader through all that is necessary to get it done.\nIn this chapter, I’ll give a broad overview of the technologies that make up the MERN \nstack. I won’t go into details or examples in this chapter; I’ll just introduce the high-level \nconcepts. This chapter will focus on how these concepts affect an evaluation of whether \nMERN is a good choice for your next web application project.\nWhat Is MERN?",
+      "metadata": {
+        "id": 39
+      }
+    },
+    {
+      "pageContent": "concepts. This chapter will focus on how these concepts affect an evaluation of whether \nMERN is a good choice for your next web application project.\nWhat Is MERN?\nAny web application is made by using multiple technologies. The combination of these \ntechnologies is called a “stack,” popularized by the LAMP stack, which is an acronym \nfor Linux, Apache, MySQL, and PHP, which are all open-source components. As web \ndevelopment matured and interactivity came to the fore, single page applications (SPAs) \nbecame more popular. An SPA is a web application paradigm that avoids refreshing a web \npage to display new content; it instead uses lightweight calls to the server to get some data \nor snippets and updates the web page. The result looks quite nifty when compared to the \nold way of reloading the page entirely. This brought about a rise in front-end frameworks, \nsince much of the work was done on the client side. At approximately the same time,",
+      "metadata": {
+        "id": 40
+      }
+    },
+    {
+      "pageContent": "old way of reloading the page entirely. This brought about a rise in front-end frameworks, \nsince much of the work was done on the client side. At approximately the same time, \nalthough completely unrelated, NoSQL databases also started gaining popularity.\nThe MEAN (MongoDB, Express, AngularJS, Node.js) stack was one of the early \nopen-source stacks that epitomized this shift towards SPAs and the adoption of NoSQL. \nAngularJS, a front-end framework based on the model-view-controller (MVC) design \npattern, anchored this stack. MongoDB, a very popular NoSQL database, was used for \npersistent data storage. Node.js, a server-side JavaScript runtime environment, and \nExpress, a web server built on Node.js, formed the middle tier, or the web server. This \nstack is arguably the most popular stack for any new web application these days.",
+      "metadata": {
+        "id": 41
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n2\nNot exactly competing, but React, an alternate front-end technology from Facebook, \nhas been gaining popularity and offers a replacement to AngularJS. It thus replaces the \n“A” with an “R” in MEAN, to give us the MERN Stack. I said “not exactly” since React is not \na full-fledged MVC framework. It is a JavaScript library for building user interfaces, so in \nsome sense it’s the View part of the MVC.\nAlthough we pick a few defining technologies to define a stack, these are not enough \nto build a complete web application. Other tools are required to help the process of \ndevelopment, and other libraries are needed to complement React. This book is about all \nof them: how to build a complete web application based on the MERN stack, using other \ncomplementary tools that make it easy for us to do it.\nWho Should Read This Book\nDevelopers and architects who have prior experience in any web app stack other than",
+      "metadata": {
+        "id": 42
+      }
+    },
+    {
+      "pageContent": "complementary tools that make it easy for us to do it.\nWho Should Read This Book\nDevelopers and architects who have prior experience in any web app stack other than \nthe MERN stack will find this book useful for learning about this modern stack. Prior \nknowledge of how web applications work is required. Knowledge of JavaScript is also \nrequired. It is further assumed that the reader knows the basics of HTML and CSS. It will \ngreatly help if you are also familiar with the version control tool git; you can try out the \ncode just by cloning the git repository that holds all the source code described in this \nbook, and running each step by just checking out a branch.\nIf you have decided that your new app will use the MERN stack, then this book will \nhelp you quickly get off the ground. Even if you have not made any decision, reading the \nbook will get you excited about MERN and equip you with enough knowledge to make",
+      "metadata": {
+        "id": 43
+      }
+    },
+    {
+      "pageContent": "help you quickly get off the ground. Even if you have not made any decision, reading the \nbook will get you excited about MERN and equip you with enough knowledge to make \nthat decision for a future project. The most important thing you will learn is how to put \ntogether multiple technologies and build a complete, functional web application; by the \nbook’s end, you’ll be a full-stack developer or architect on MERN.\nStructure of the Book\nAlthough the focus of the book is to teach you how to build a complete web application, \nmost of the book revolves around React. That’s just because, as is true of most modern \nweb applications, the front-end code forms the bulk. And in this case, React is used for \nthe front end.\nThe tone of the book is tutorial-like. What this means is that unless you try out \nthe code and solve the exercises yourself, you will not get the full benefit of reading the \nbook. There are plenty of code listings in the book (this code is also available online in",
+      "metadata": {
+        "id": 44
+      }
+    },
+    {
+      "pageContent": "the code and solve the exercises yourself, you will not get the full benefit of reading the \nbook. There are plenty of code listings in the book (this code is also available online in \na GitHub repository, at https://github.com/vasansr/pro-mern-stack). I encourage \nyou not to copy/paste; instead, please type out the code yourself. I find this very valuable \nin the learning process. There are very small nuances, such as the types of quotes, \nwhich can cause a big difference. When you actually type out the code, you are much \nmore conscious of these things than when you are just reading it. Clone the repository \nonly when you are stuck and want to compare it with my code, which has been tested \nand confirmed to work. And if you do copy/paste small sections, don’t do it from the \nelectronic version of the book, as the typography of the book may not be a faithful \nreproduction of the actual code.",
+      "metadata": {
+        "id": 45
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n3\nI have also added a checkpoint (a git branch, in fact) after every change that can be \ntested in isolation, so that you can look at the exact diffs between two checkpoints, online. The \ncheckpoints and links to the diffs are listed in the home page (the README) of the repository. \nYou may find this more useful than looking at the entire source, or even the listings in the text \nof this book, as GitHub diffs are far more expressive than what I can do in this book.\nRather than cover one topic or technology per section, I have adopted a more \npractical and problem-solving approach. You will have developed a full-fledged working \napplication by the end of the book, but you’ll start small with a Hello World example. \nJust as in a real project, you will add more features to the application as you progress. \nWhen you do this, you’ll encounter tasks that need additional concepts or knowledge to",
+      "metadata": {
+        "id": 46
+      }
+    },
+    {
+      "pageContent": "Just as in a real project, you will add more features to the application as you progress. \nWhen you do this, you’ll encounter tasks that need additional concepts or knowledge to \nproceed. For each of these tasks, I will introduce the concept or technology that can be \nused, and I’ll discuss it in detail. Thus, you may not find one chapter or section devoted \npurely to one topic or technology; instead, each chapter will be a set of goals you want to \nachieve in the application. You will be switching between technologies and tools as you \nprogress.\nI have included exercises wherever possible to make you either think or look up \nvarious documentation pages on the Internet. This is so that you know where to get \nadditional information for things that are not covered in the book, such as very advanced \ntopics or APIs.\nI have chosen an issue tracking application as the application that you’ll build. \nIt’s something most developers can relate to, and it has many of the attributes and",
+      "metadata": {
+        "id": 47
+      }
+    },
+    {
+      "pageContent": "topics or APIs.\nI have chosen an issue tracking application as the application that you’ll build. \nIt’s something most developers can relate to, and it has many of the attributes and \nrequirements that any enterprise application will have, commonly referred to as a \n“CRUD” application (CRUD stands for Create, Read, Update, Delete of a database record).\nConventions\nMany of the conventions used in the book are quite obvious, so I won’t explain all of \nthem. However, I will cover some conventions with respect to how the code is shown if \nthey’re not obvious.\nEach chapter has multiple sections, and each section is devoted to one set of code \nchanges that results in a working application and can be tested. One section can have \nmultiple listings, each of which may not be testable by itself. Every section will also have a \ncorresponding entry in the GitHub repository, where you can see the complete source of",
+      "metadata": {
+        "id": 48
+      }
+    },
+    {
+      "pageContent": "multiple listings, each of which may not be testable by itself. Every section will also have a \ncorresponding entry in the GitHub repository, where you can see the complete source of \nthe application at the end of that section, as well as the differences between the previous \nsection and the current section. You will find the difference view very useful to identify \nthe changes made in the section.\nAll code changes will appear in the listings within the section, but do not rely on \ntheir accuracy. The reliable and working code can be found in the GitHub repository, \nwhich may even have undergone last minute changes that couldn’t make it to the book in \ntime. All listings will have a listing caption, which will include the name of the file being \nchanged or created.\nA listing is a full listing if it contains a file, a class, a function, or an object in its \nentirety. A full listing may also contain two or more classes, functions, or objects, but not",
+      "metadata": {
+        "id": 49
+      }
+    },
+    {
+      "pageContent": "A listing is a full listing if it contains a file, a class, a function, or an object in its \nentirety. A full listing may also contain two or more classes, functions, or objects, but not \nmultiple files. In such a case, if the entities are not consecutive, I’ll use ellipses to indicate \nchunks of unchanged code.\nListing 1-1 is an example of a full listing, the contents of an entire file.",
+      "metadata": {
+        "id": 50
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n4\nListing 1-1. server.js: Express server\nconst express = require('express');\nconst app = express();\napp.use(express.static('static'));\napp.listen(3000, function () {\n  console.log('App started on port 3000');\n});\nA partial listing, on the other hand, will not list complete files, functions, or objects. \nIt will start and end with an ellipsis, and will have ellipses in the middle to skip chunks of \ncode that have not changed. Wherever possible, the actual changes will be highlighted. \nThe changes will be highlighted in bold, and the unchanged code will be in the normal \nfont. Listing 1-2 is an example of a partial listing that has small changes.\nListing 1-2. package.json: Adding Scripts for Transformation\n...\n  \"scripts\": {\n    \"compile\": \"babel src --presets react,es2015 --out-dir static\",\n    \"watch\": \"babel src --presets react,es2015 --out-dir static --watch\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n...",
+      "metadata": {
+        "id": 51
+      }
+    },
+    {
+      "pageContent": "\"watch\": \"babel src --presets react,es2015 --out-dir static --watch\",\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n...\nDeleted code will be shown using strikethrough, as in Listing 1-3.\nListing 1-3. index.html: Change in Script Name and Type\n...\n<script\n    src=\"https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.\nmin.js\"></script>\n...\nCode blocks are used within regular text to cull out changes in code for discussion, \nand are often a repetition of code in listings. These are not listings, and are often just a \nline or two. The following is an example, where the line is extracted out of a listing, and \none word is highlighted:\n...\nconst contentNode = ...\n...\nAll commands that need to be executed on the console will be in the form a code \nblock starting with $. Here is an example:\n$ npm install express",
+      "metadata": {
+        "id": 52
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n5\nWhat You Need\nYou will need a computer where you can run your server and do other tasks such as \ncompilation. You also need a browser to test your application. I recommend a Linux-\nbased computer running Ubuntu or a Mac as your development server, but with minor \nchanges, you could also use a Windows PC.\nIf you have a Windows PC, an option is to run an Ubuntu server virtual machine \nusing Vagrant (www.vagrantup.com/). This is helpful because you will eventually need to \ndeploy your code on a Linux-based server, and it is best to get used to that environment \nfrom the beginning. But you may find it difficult to edit files using the console. In that \ncase, an Ubuntu desktop variant may work better for you, but it requires more memory \nfor the virtual machine.\nRunning Node.js directly on Windows will also work, but the code samples in this \nbook assume a Linux-based PC or Mac. If you choose to run directly on a Windows PC,",
+      "metadata": {
+        "id": 53
+      }
+    },
+    {
+      "pageContent": "for the virtual machine.\nRunning Node.js directly on Windows will also work, but the code samples in this \nbook assume a Linux-based PC or Mac. If you choose to run directly on a Windows PC, \nyou may have to make the appropriate changes, especially when running commands in \nthe shell, using a copy instead of using soft links, and in rare cases, to deal with ‘\\’ vs. ‘/’ in \npath separators.\nFurther, to keep the book concise, I have not included installation instructions for \npackages, and they are different for different operating systems. You will need to follow the \ninstallation instructions from the package providers’ websites. And in many cases I have not \nincluded direct links to websites even though I ask you to look them up. This is for a couple \nof reasons. The first is to let you learn by yourself how to search for them. The second is that \nthe link I may provide may have moved to another location due to the fast-paced changes",
+      "metadata": {
+        "id": 54
+      }
+    },
+    {
+      "pageContent": "of reasons. The first is to let you learn by yourself how to search for them. The second is that \nthe link I may provide may have moved to another location due to the fast-paced changes \nthat the MERN stack was experiencing at the time of writing this book.\nMERN Components\nI’ll give a quick introduction to the main components that form the MERN stack and a few \nother libraries and tools that you’ll be using to build your web application. I’ll just touch \nupon the salient features, and leave the details to other chapters where they are more \nappropriate.\nReact\nReact anchors the MERN stack. In some sense, it is the defining component of the MERN \nstack.\nReact is an open-source JavaScript library maintained by Facebook that can be used \nfor creating views rendered in HTML. Unlike AngularJS, React is not a framework. It is a \nlibrary. Thus, it does not, by itself, dictate a framework pattern such as the MVC pattern.",
+      "metadata": {
+        "id": 55
+      }
+    },
+    {
+      "pageContent": "for creating views rendered in HTML. Unlike AngularJS, React is not a framework. It is a \nlibrary. Thus, it does not, by itself, dictate a framework pattern such as the MVC pattern. \nYou use React to render a view (the V in MVC), but how to tie the rest of the application \ntogether is completely up to you.\nI’ll discuss a few things about React that make it stand out.",
+      "metadata": {
+        "id": 56
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n6\nWhy Facebook Invented React\nThe Facebook folks built React for their own use, and later they open-sourced it. Why did \nthey have to build a new library when there are tons of them out there?\nReact was born not in the Facebook application that we all see, but rather in \nFacebook’s Ads organization. Originally, they used a typical client-side MVC model, \nwhich had all of the regular two-way data binding and templates. Views would listen to \nchanges on models, and they would respond to those changes by updating themselves.\nSoon, this got pretty hairy as the application became more and more complex. What \nwould happen was that a change would cause an update, which would cause another \nupdate (because something changed due to that update), which would cause yet another, \nand so on. Such cascading updates became difficult to maintain because there were subtle \ndifference in the code to update the view, depending on the root cause of the update.",
+      "metadata": {
+        "id": 57
+      }
+    },
+    {
+      "pageContent": "and so on. Such cascading updates became difficult to maintain because there were subtle \ndifference in the code to update the view, depending on the root cause of the update.\nThen they thought, why do we need to deal with all this, when all the code to depict \nthe model in a view is already there? Aren’t we replicating the code by adding smaller \nand smaller snippets to manage transitions? Why can’t we use the templates (that is, the \nviews) themselves to manage state changes?\nThat’s when they started thinking of building something declarative rather than \nimperative.\nDeclarative\nReact views are declarative. What this really means is that you, as a programmer, don’t \nhave to worry about managing the effect of changes in the view’s state or the data. In \nother words, you don’t worry about transitions or mutations in the DOM caused by \nchanges to the view’s state. How does this work?\nA React component declares how the view looks like, given the data. When the data",
+      "metadata": {
+        "id": 58
+      }
+    },
+    {
+      "pageContent": "changes to the view’s state. How does this work?\nA React component declares how the view looks like, given the data. When the data \nchanges, if you are used to the jQuery way of doing things, you’d typically do some DOM \nmanipulation. Not in React. You just don’t do anything! The React library figures out \nhow the new view looks, and just applies the changes between the old view and the new \nview. This makes the views consistent, predictable, easier to maintain, and simpler to \nunderstand.\nWon’t this be too slow? Won’t it cause the entire screen to be refreshed on every data \nchange? Well, React takes care of this using its virtual DOM technology. You declare \nhow the view looks, not in the form of HTML or a DOM, but in the form of a virtual \nrepresentation, an in-memory data structure. React can compute the differences in \nthe virtual DOM very efficiently, and can apply only these changes to the actual DOM.",
+      "metadata": {
+        "id": 59
+      }
+    },
+    {
+      "pageContent": "representation, an in-memory data structure. React can compute the differences in \nthe virtual DOM very efficiently, and can apply only these changes to the actual DOM. \nCompared to manual updates which do only the required DOM changes, this adds very \nlittle overhead because the algorithm to compute the differences in the virtual DOM has \nbeen optimized to the hilt.\nComponent-Based\nThe fundamental building block of React is a component, which maintains its own state \nand renders itself.",
+      "metadata": {
+        "id": 60
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n7\nIn React, all you do is build components. Then, you put components together \nto make another component that depicts a complete view or page. A component \nencapsulates the state of data and the view, or how it is rendered. This makes writing and \nreasoning about the entire application easier, by splitting it into components and focusing \non one thing at a time.\nComponents talk to each other by sharing state information in the form of read-only \nproperties to their child components and by callbacks to their parent components. I’ll dig \ndeeper into this concept in a later chapter, but the gist of it is that components in React \nare very cohesive, and the coupling with one another is minimal.\nNo Templates\nMany web application frameworks rely on templates to automate the task of creating \nrepetitive HTML or DOM elements. The templating language in these frameworks is \nsomething that the developer will have to learn and practice. Not in React.",
+      "metadata": {
+        "id": 61
+      }
+    },
+    {
+      "pageContent": "repetitive HTML or DOM elements. The templating language in these frameworks is \nsomething that the developer will have to learn and practice. Not in React.\nReact uses a full-featured programming language to construct repetitive or \nconditional DOM elements. That language is none other than JavaScript. For example, \nwhen you want to construct a table, you write a for(...) loop in JavaScript, or use the \nmap() function of an Array.\nThere is an intermediate language to represent a virtual DOM, and that is JSX, which \nis very similar to HTML. It lets you create nested DOM elements in a familiar language \nrather than hand-construct them using JavaScript functions. Note that JSX is not a \nprogramming language; it is a representational markup like HTML. It’s also very similar \nto HTML so you don’t have to learn too much. More about this later.\nYou don’t have to use JSX; you can write pure JavaScript to create your virtual DOM if",
+      "metadata": {
+        "id": 62
+      }
+    },
+    {
+      "pageContent": "to HTML so you don’t have to learn too much. More about this later.\nYou don’t have to use JSX; you can write pure JavaScript to create your virtual DOM if \nyou prefer. But if you are used to HTML, it’s simpler to just use JSX. Don’t worry about it; \nit’s really not a new language that you’ll need to learn.\nIsomorphic\nReact can be run on the server too. That’s what isomorphic means: the same code can run \non both server and the browser.\nThis allows you to create pages on the server when required, for example, for SEO \npurposes. The same code can be shared on the server to achieve this. On the server, you’ll \nneed something that can run JavaScript, and this is where I introduce Node.js.\nNode.js\nSimply put, Node.js is JavaScript outside of a browser. The creators of Node.js just took \nChrome’s V8 JavaScript engine and made it run independently as a JavaScript runtime. If \nyou are familiar with the Java runtime that runs Java programs, you can easily relate to the",
+      "metadata": {
+        "id": 63
+      }
+    },
+    {
+      "pageContent": "Chrome’s V8 JavaScript engine and made it run independently as a JavaScript runtime. If \nyou are familiar with the Java runtime that runs Java programs, you can easily relate to the \nJavaScript runtime: the Node.js runtime runs JavaScript programs.",
+      "metadata": {
+        "id": 64
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n8\nNode.js Modules\nIn a browser, you can load multiple JavaScript files, but you need an HTML page to do all \nthat. You cannot refer to another JavaScript file from one JavaScript file. But for Node.js, \nthere is no HTML page that starts it all. In the absence of the enclosing HTML page,  \nNode.js uses its own module system based on CommonJS to put together multiple \nJavaScript files.\nModules are like libraries. You can include the functionality of another JavaScript file \n(provided it’s written to follow a module’s specifications) by using the keyword require \n(which you won’t find in a browser’s JavaScript). You can therefore split your code \ninto files or modules for the sake of better organization, and load one or another using \nrequire. I’ll talk about the exact syntax in a later chapter; at this point it’s enough to note \nthat compared to JavaScript on the browser, there is a cleaner way to modularize your \ncode using Node.js.",
+      "metadata": {
+        "id": 65
+      }
+    },
+    {
+      "pageContent": "that compared to JavaScript on the browser, there is a cleaner way to modularize your \ncode using Node.js.\nNode.js ships with a bunch of core modules compiled into the binary. These \nmodules provide access to the operating system elements such as the file system, \nnetworking, input/output, etc. They also provide some utility functions that are \ncommonly required by most programs.\nApart from your own files and the core modules, you can also find a great amount of \nthird-party open source libraries available for easy installation. This brings us to npm.\nNode.js and npm\nnpm is the default package manager for Node.js. You can use npm to install third-party \nlibraries (packages) and also manage dependencies between them. The npm registry \n(www.npmjs.com) is a public repository of all modules published by people for the \npurpose of sharing.\nAlthough npm started off as a repository for Node.js modules, it quickly transformed",
+      "metadata": {
+        "id": 66
+      }
+    },
+    {
+      "pageContent": "(www.npmjs.com) is a public repository of all modules published by people for the \npurpose of sharing.\nAlthough npm started off as a repository for Node.js modules, it quickly transformed \ninto a package manager for delivering other JavaScript-based modules, notably those that \ncan be used in the browser. jQuery, by far the most popular client-side JavaScript library, \nis available as an npm module. In fact, even though React is largely client-side code \nand can be included directly in your HTML as a script file, it is recommended instead \nthat React is installed via npm. But, once installed as a package, we need something to \nput all the code together that can be included in the HTML so that the browser can get \naccess to the code. For this, there are build tools such as browserify or webpack that can \nput together your own modules as well as third-party libraries in a bundle that can be \nincluded in the HTML.",
+      "metadata": {
+        "id": 67
+      }
+    },
+    {
+      "pageContent": "put together your own modules as well as third-party libraries in a bundle that can be \nincluded in the HTML.\nAs of the writing this book, npm tops the list of module or package repositories, \nhaving more than 250,000 packages (source: www.modulecounts.com). Maven, which used \nto be the biggest two years back, has just half the number now. This shows that npm is not \njust the largest, but also the fastest growing repository. It is often touted that the success \nof Node.js is largely owed to npm and the module ecosystem that has sprung around it.\nnpm is not just easy to use both for creating and using modules; it also has a unique \nconflict resolution technique that allows multiple conflicting versions of a module to exist \nside-by-side to satisfy dependencies. Thus, in most cases, npm just works.",
+      "metadata": {
+        "id": 68
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n9\nNode.js Is Event Driven\nNode.js has an asynchronous, event-driven, non-blocking input/output (I/O) model, as \nopposed to using threads to achieve multitasking.\nMost languages depend on threads to do things simultaneously. But in fact, there is \nno such thing as simultaneous when it comes to a single processor running your code. \nThreads give the feeling of simultaneousness by letting other pieces of code run while \none piece waits (blocks) for some event to complete. Typically, these are I/O events such \nas reading from a file or communicating over the network. For a programmer, this means \nthat you write your code sequentially. For example, on one line, you make a call to open a \nfile, and on the next line, you have your file handle ready. What really happens is that your \ncode is blocked while the file is being opened. If you have another thread running, the \noperating system or the language can switch out this code and start running some other",
+      "metadata": {
+        "id": 69
+      }
+    },
+    {
+      "pageContent": "code is blocked while the file is being opened. If you have another thread running, the \noperating system or the language can switch out this code and start running some other \ncode during the blocked period.\nNode.js, on the other hand, has no threads. It relies on callbacks to let you know that \na pending task is completed. So, if you write a line of code to open a file, you supply it with \na callback function to receive the results. On the next line, you continue to do other things \nthat don’t require the file handle. If you are accustomed to asynchronous Ajax calls, you \nwill immediately know what I mean. Event-driven programming is natural to Node.js due \nto the underlying language constructs such as closures.\nNode.js achieves multitasking using an event loop. This is nothing but a queue of \nevents that need to be processed and callbacks to be run on those events. In the above \nexample, the file that is ready to be read is an event that will trigger the callback you",
+      "metadata": {
+        "id": 70
+      }
+    },
+    {
+      "pageContent": "events that need to be processed and callbacks to be run on those events. In the above \nexample, the file that is ready to be read is an event that will trigger the callback you \nsupplied while opening it. If you don’t understand this completely, don’t worry. The \nexamples in the rest of this book should make you comfortable about how it really works.\nOn one hand, an event-based approach makes Node.js applications fast and lets \nthe programmer be blissfully oblivious of the semaphores and locks that are utilized to \nsynchronize multi-threaded events. On the other hand, getting used to this model takes \nsome learning and practice.\nExpress\nNode.js is just a runtime environment that can run JavaScript. To write a full-fledged \nweb server by hand on Node.js directly is not that easy, nor is it necessary. Express is the \nframework that simplifies the task of writing your server code.\nThe Express framework lets you define routes, specifications of what to do when a",
+      "metadata": {
+        "id": 71
+      }
+    },
+    {
+      "pageContent": "framework that simplifies the task of writing your server code.\nThe Express framework lets you define routes, specifications of what to do when a \nHTTP request matching a certain pattern arrives. The matching specification is regular \nexpression (regex) based and is very flexible, like most other web application frameworks. \nThe what-to-do part is just a function that is given the parsed HTTP request.\nExpress parses request URL, headers, and parameters for you. On the response side, \nit has, as expected, all of the functionality required by web applications. This includes \nsetting response codes, setting cookies, sending custom headers, etc. Further, you can \nwrite Express middleware, which are custom pieces of code that can be inserted in any \nrequest/response processing path to achieve common functionality such as logging, \nauthentication, etc.\nExpress does not have a template engine built in, but it supports any template engine",
+      "metadata": {
+        "id": 72
+      }
+    },
+    {
+      "pageContent": "request/response processing path to achieve common functionality such as logging, \nauthentication, etc.\nExpress does not have a template engine built in, but it supports any template engine \nof your choice such as pug, mustache, etc. But, for an SPA, you will not need to use a",
+      "metadata": {
+        "id": 73
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n10\nserver-side template engine. This is because all dynamic content generation is done on \nthe client, and the web server only serves static files and data via API calls. Especially with \nMERN stack, page generation is handled by React itself on the server side.\nIn summary, Express is a web server framework meant for Node.js, and it is not very \ndifferent from many other server-side frameworks in terms of what you can achieve with it.\nMongoDB\nMongoDB is the database used in the MERN stack. It is a NoSQL document-oriented \ndatabase, with a flexible schema and a JSON-based query language. I’ll discuss a few \nthings that MongoDB is (and is not) here.\nNoSQL\nNoSQL stands for “non-relational,” no matter what the acronym expands to. It’s \nessentially not a conventional database where you have tables and columns (called a \nrelational database). I find that there are two attributes of NoSQL that differentiate it from \nthe conventional.",
+      "metadata": {
+        "id": 74
+      }
+    },
+    {
+      "pageContent": "essentially not a conventional database where you have tables and columns (called a \nrelational database). I find that there are two attributes of NoSQL that differentiate it from \nthe conventional.\nThe first is the ability to horizontally scale by distributing the load over multiple \nservers. NoSQL databases do this by sacrificing an important (for some) aspect of the \ntraditional databases: strong consistency. That is, the data is not necessarily consistent \nfor very brief amounts of time across replicas. For more information, read up on the \n“CAP theorem” (https://en.wikipedia.org/wiki/CAP_theorem). But in reality, very few \napplications require web scale, and this aspect of NoSQL databases comes into play very \nrarely.\nThe second, and to me, more important, aspect is that NoSQL databases are \nnot necessarily relational databases. You don’t have to think of your data in terms of \nrows and columns of tables. The difference in the representation in the application",
+      "metadata": {
+        "id": 75
+      }
+    },
+    {
+      "pageContent": "not necessarily relational databases. You don’t have to think of your data in terms of \nrows and columns of tables. The difference in the representation in the application \nand on disk is sometimes called impedance mismatch. This is a term borrowed from \nelectrical engineering, and it means, roughly, that we’re not talking the same language. \nIn MongoDB, instead, you can think of the persisted data just as you see it in your \napplication code; that is, as objects or documents. This helps a programmer avoid a \ntranslation layer, whereby one has to convert or map the objects that the code deals \nwith to relational tables. Such translations are called object relational mapping (ORM) \nlayers.\nDocument-Oriented\nCompared to relational databases where data is stored in the form of relations, or tables, \nMongoDB is a document-oriented database. The unit of storage (comparable to a row) is \na document, or an object, and multiple documents are stored in collections (comparable",
+      "metadata": {
+        "id": 76
+      }
+    },
+    {
+      "pageContent": "MongoDB is a document-oriented database. The unit of storage (comparable to a row) is \na document, or an object, and multiple documents are stored in collections (comparable \nto a table). Every document in a collection has a unique identifier by which it can be \naccessed. The identifier is indexed automatically.",
+      "metadata": {
+        "id": 77
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n11\nImagine the storage structure of an invoice, with the customer name, address, etc. \nand a list of items (lines) in the invoice. If you had to store this in a relational database, \nyou would use two tables, say, invoice and invoice_lines, with the lines or items \nreferring to the invoice via a foreign-key relation. Not so in MongoDB. You would store \nthe entire invoice as a single document, fetch it, and update it in an atomic operation. \nThis applies not just to line items in an invoice. The document can be any kind of deeply \nnested object.\nModern relational databases have started supporting one level of nesting by \nallowing array fields and JSON fields, but it is not the same as a true document database. \nMongoDB has the ability to index on deeply nested fields, which relational databases \ncannot do.\nThe downside is that the data is stored denormalized. This means that data is",
+      "metadata": {
+        "id": 78
+      }
+    },
+    {
+      "pageContent": "MongoDB has the ability to index on deeply nested fields, which relational databases \ncannot do.\nThe downside is that the data is stored denormalized. This means that data is \nsometimes duplicated, requiring more storage space. Also, things like renaming a master \n(catalog) entry name would mean sweeping through the database. But then, storage has \nbecome relatively cheap these days, and renaming master entries are rare operations.\nSchema-Less\nStoring an object in a MongoDB database does not have to follow a prescribed schema. \nAll documents in a collection need not have the same set of fields.\nThis means that, especially during early stages of development, you don’t need to \nadd/rename columns in the schema. You can quickly add fields in your application code \nwithout having to worry about database migration scripts. At first, this may seem a boon, \nbut in effect all it does is transfer the responsibility of data sanity from the database to",
+      "metadata": {
+        "id": 79
+      }
+    },
+    {
+      "pageContent": "without having to worry about database migration scripts. At first, this may seem a boon, \nbut in effect all it does is transfer the responsibility of data sanity from the database to \nyour application code. I find that in larger teams and more stable products, it is better \nto have a strict or semi-strict schema. Using object document mapping libraries such as \nmongoose (not covered in this book) alleviates this problem.\nJavaScript Based\nMongoDB’s language is JavaScript.\nFor relational databases, there is a query language called SQL. For MongoDB, the \nquery language is based on JSON: you create, search for, make changes, and delete \ndocuments by specifying the operation in a JSON object. The query language is not \nEnglish-like (you don’t SELECT or say WHERE), and therefore much easier to construct \nprogrammatically.\nData is also interchanged in JSON format. In fact, the data is natively stored in a",
+      "metadata": {
+        "id": 80
+      }
+    },
+    {
+      "pageContent": "English-like (you don’t SELECT or say WHERE), and therefore much easier to construct \nprogrammatically.\nData is also interchanged in JSON format. In fact, the data is natively stored in a \nvariation of JSON called BSON (where B stands for Binary) in order to efficiently utilize \nspace. When you retrieve a document from a collection, it is returned as a JSON object.\nMongoDB comes with a shell that is built on top of a JavaScript runtime like Node.js.  \nThis means that you have a powerful and familiar scripting language (JavaScript) \nto interact with the database via command line. You can also write code snippets in \nJavaScript that can be saved and run on the server (the equivalent of stored procedures).",
+      "metadata": {
+        "id": 81
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n12\nTools and Libraries\nIt’s hard to build any web application without using tools to help you on your way. Here’s \na brief introduction to the other tools apart from the MERN stack components that you \nwill be using to develop your sample application in this book.\nReact-Router\nReact supplies only the view rendering capability and helps manage interactions in \na single component. When it comes to transitioning between different views of the \ncomponent and keeping the browser URL in sync with the current state of the view, we \nneed something more.\nThis capability of managing URLs and history is called routing. It is similar to the \nserver-side routing that Express does: a URL is parsed, and based on its components, \na piece of code is associated with the URL. React-Router not only does this, but also \nmanages the browser’s Back button functionality so that we can transition between what",
+      "metadata": {
+        "id": 82
+      }
+    },
+    {
+      "pageContent": "a piece of code is associated with the URL. React-Router not only does this, but also \nmanages the browser’s Back button functionality so that we can transition between what \nseem as pages without loading the entire page from the server. We could have built this \nourselves, but React-Router is a very easy-to-use library that manages this for us.\nReact-Bootstrap\nBootstrap, the most popular CSS framework, has been adapted to React and the project is \ncalled React-Bootstrap. This library not only gives us most of the Bootstrap functionality, \nbut the components and widgets provided by this library also give us a wealth of \ninformation on how to design our own widgets and components.\nThere are other component/CSS libraries built for React (such as Material-UI, MUI, \nElemental UI, etc.) and also individual components (such as react-select, react-treeview, \nand react-date-picker). All these are good choices too, depending on what you are trying",
+      "metadata": {
+        "id": 83
+      }
+    },
+    {
+      "pageContent": "Elemental UI, etc.) and also individual components (such as react-select, react-treeview, \nand react-date-picker). All these are good choices too, depending on what you are trying \nto achieve. But I have found that React-Bootstrap is the most comprehensive single \nlibrary with the familiarity of Bootstrap (which I presume most of you know already).\nWebpack\nWebpack is indispensable when it comes to modularizing code. There are other \ncompeting tools such as Bower and Browserify which also serve the purpose of \nmodularizing and bundling all the client code, but I found that webpack is easier to use \nand does not require another tool (like gulp or grunt) to manage the build process.\nWe will be using webpack not just to modularize and build the client-side code into a \nbundle to deliver to the browser, but also to “compile” some code. The compilation step is \nneeded to generate pure JavaScript from React code written in JSX.",
+      "metadata": {
+        "id": 84
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n13\nOther Libraries\nVery often, there’s a need for a library to address a common problem. In this book, we’ll \nuse body-parser (to parse POST data in the form of JSON, or form data), ESlint (for \nensuring that the code follows conventions), and express-session, all on the server side, \nand some more like react-select on the client side.\nWhy MERN?\nSo now you have a fair idea of the MERN stack and what it is based on. But is it really far \nsuperior to any other stack, say, LAMP, MEAN, J2EE, etc.? By all means, all of these stacks \nare good enough for most modern web applications. All said and done, familiarity is the \ncrux of productivity in software, so I wouldn’t advise a MERN beginner to blindly start \ntheir new project on MERN, especially if they have an aggressive deadline. I’d advise them \nto choose the stack that they are already familiar with.\nBut MERN does have its special place. It is ideally suited for web applications that",
+      "metadata": {
+        "id": 85
+      }
+    },
+    {
+      "pageContent": "to choose the stack that they are already familiar with.\nBut MERN does have its special place. It is ideally suited for web applications that \nhave a large amount of interactivity built into the front-end. Go back and reread the \nsection on “Why Facebook built React.” It will give you some insights. You could perhaps \nachieve the same with other stacks, but you’ll find that it is most convenient to do so with \nMERN. So, if you do have a choice of stacks, and the luxury of a little time to get familiar, \nyou may find that MERN is a good choice. I’ll talk about a few things that I like about \nMERN, which may help you decide.\nJavaScript Everywhere\nThe best part about MERN is that there is a single language used everywhere. It uses \nJavaScript for client-side code as well as server-side code. Even if you have database \nscripts (in MongoDB), you write them in JavaScript. So, the only language you need to \nknow and be comfortable with is JavaScript.",
+      "metadata": {
+        "id": 86
+      }
+    },
+    {
+      "pageContent": "scripts (in MongoDB), you write them in JavaScript. So, the only language you need to \nknow and be comfortable with is JavaScript.\nThis is kind of true of all other stacks based on MongoDB and Node.js, especially \nthe MEAN stack. But what makes the MERN stack stand out is that you don’t even need \na template language to generate pages. In the React way, you programmatically generate \nHTML (actually DOM elements) using JavaScript. So, not only do you avoid learning a \nnew language, you also get the full power of JavaScript. This is in contrast to a template \nlanguage, which will have its own limitations. Of course, you will need to know HTML \nand CSS, but these are not programming languages, and there is no way you can avoid \nlearning HTML and CSS (not just the markup, but the paradigm and the structure).\nApart from the obvious advantage of not having to switch contexts while writing \nclient-side and server-side code, having a single language across tiers also lets you share",
+      "metadata": {
+        "id": 87
+      }
+    },
+    {
+      "pageContent": "Apart from the obvious advantage of not having to switch contexts while writing \nclient-side and server-side code, having a single language across tiers also lets you share \ncode between them. I can think of functions that execute business logic, do validation, \netc. that can be shared. They need to be run on the client side so that user experience is \nbetter by being more responsive to user inputs. They also need to be run on the server \nside to protect the data model.",
+      "metadata": {
+        "id": 88
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n14\nJSON Everywhere\nWhen using the MERN stack, object representation is JSON (JavaScript Object Notation) \neverywhere: in the database, in the application server, and on the client, and even on the \nwire.\nI have found that this often saves me a lot of hassle in terms of transformations. No \nobject relational mapping (ORM), no having to force fit an object model into rows and \ncolumns, no special serializing and de-serializing code. An object document mapper \n(ODM) such as mongoose may help enforce a schema and make things even simpler, but \nthe bottom line is that you save a lot of data transformation code.\nFurther, it just lets me think in terms of native objects, and see them as their natural \nselves even when inspecting the database directly using a shell.\nNode.js Performance\nDue to its event-driven architecture and non-blocking I/O, the claim is that Node.js is \nvery fast and a resilient web server.",
+      "metadata": {
+        "id": 89
+      }
+    },
+    {
+      "pageContent": "Node.js Performance\nDue to its event-driven architecture and non-blocking I/O, the claim is that Node.js is \nvery fast and a resilient web server.\nAlthough it takes a little getting used to, I have no doubt that when your application \nstarts scaling and receiving a lot of traffic, this will play an important role in cutting \ncosts as well as savings in terms of time spent in trouble-shooting server CPU and I/O \nproblems.\nThe npm Ecosystem\nI’ve already discussed the huge number of npm packages available freely for everyone \nto use. Any problem that you face will have an npm package already. Even if it doesn’t fit \nyour needs exactly, you can fork it and make your own npm package.\nnpm has been developed on the shoulders of other great package managers and has \ntherefore built into it a lot of best practices. I find that npm is by far the easiest to use and \nfastest package manager I have used to date. Part of the reason is that most npm packages",
+      "metadata": {
+        "id": 90
+      }
+    },
+    {
+      "pageContent": "therefore built into it a lot of best practices. I find that npm is by far the easiest to use and \nfastest package manager I have used to date. Part of the reason is that most npm packages \nare so small, due to the compact nature of JavaScript code.\nIsomorphic\nSPAs used to have the problem that they were not SEO friendly. We had to use \nworkarounds like running PhantomJS on the server to pseudo-generate HTML pages, \nor use Prerender.io services that did the same for us. This introduced an additional \ncomplexity.\nWith the MERN stack, serving pages out of the server is natural and doesn’t require \ntools that are after-thoughts. This is made possible due to the virtual DOM technique \nused by React. Once you have a virtual DOM, the layer that translates it to a renderable \npage can be abstracted. For the browser, it is the real DOM. For the server side, it is \nHTML. In fact, React Native has taken it to another extreme: it can even be a mobile app!",
+      "metadata": {
+        "id": 91
+      }
+    },
+    {
+      "pageContent": "page can be abstracted. For the browser, it is the real DOM. For the server side, it is \nHTML. In fact, React Native has taken it to another extreme: it can even be a mobile app!\nI don’t cover React Native in this book, but this should give you a feel of what virtual \nDOM can do for you in future.",
+      "metadata": {
+        "id": 92
+      }
+    },
+    {
+      "pageContent": "Chapter 1 ■ IntroduCtIon\n15\nIt’s not a Framework!\nNot many people like or appreciate this, but I really like the fact that React is a library, not \na framework.\nA framework is opinionated; it has a set way of doing things. The framework asks you \nto fill in variations of what it thinks you want to get done. A library, on the other hand, \ngives you tools to use to construct your application. In the short term, a framework helps \na lot by getting most of the standard stuff out of the way. But over time, vagaries of the \nframework, its assumptions about what you want to get done, and the learning curve will \nmake you wish you had some control over what’s happening under the hood, especially \nwhen you have some special requirements.\nWith a library, an experienced architect can design his or her application with the \ncomplete freedom to pick and choose from the library’s functions, and build their own",
+      "metadata": {
+        "id": 93
+      }
+    },
+    {
+      "pageContent": "With a library, an experienced architect can design his or her application with the \ncomplete freedom to pick and choose from the library’s functions, and build their own \nframework that fits their application’s unique needs and vagaries. So, for an experienced \narchitect or very unique application needs, a library is better, even though a framework \ncan get you started quickly.\nSummary\nThis book lets you experience what it takes, and what it is like, to develop an application \nusing the MERN stack. The work that we will do as part of this book encourages thinking \nand experimenting rather than reading. That’s why I have a lot of examples; at the \nsame time, there are exercises that make you think. Finally, it uses the least common \ndenominator to get this done: the CRUD app.\nIf you are game, read on. Code ahoy!",
+      "metadata": {
+        "id": 94
+      }
+    }
+  ],
+  "timestamp": "2025-09-03T07:43:44.311Z"
+}

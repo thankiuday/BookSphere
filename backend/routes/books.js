@@ -20,11 +20,6 @@ const validateBookUpload = [
     .trim()
     .isLength({ max: 1000 })
     .withMessage('Description cannot exceed 1000 characters'),
-  body('subject')
-    .optional()
-    .trim()
-    .isLength({ max: 100 })
-    .withMessage('Subject cannot exceed 100 characters'),
   body('publicationYear')
     .optional()
     .isInt({ min: 1900, max: new Date().getFullYear() })
@@ -67,7 +62,6 @@ router.post('/upload',
       const {
         title,
         description,
-        subject,
         publicationYear,
         tags
       } = req.body;
@@ -118,7 +112,6 @@ router.post('/upload',
         qrCodeUrl: qrResult?.qrCodeUrl || null, // Safe access in case QR generation failed
         qrCodeKey: qrResult?.qrCodeKey || null,
         embeddingsIndex: 'temp', // Will be updated after save
-        subject,
         publicationYear: publicationYear ? parseInt(publicationYear) : undefined,
         tags: tags ? tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0) : [],
         isProcessed: false,
@@ -153,6 +146,9 @@ router.post('/upload',
         });
       }
 
+      // Generate pre-signed URL for download (expires in 1 hour)
+      const downloadUrl = await generatePresignedUrl(book.fileUrl.split('/').slice(-2).join('/'), 3600);
+
       res.status(201).json({
         message: 'Book uploaded successfully',
         book: {
@@ -162,7 +158,7 @@ router.post('/upload',
           qrCodeUrl: book.qrCodeUrl,
           bookUrl: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/chat/${book.subdomain}`,
           fileUrl: book.fileUrl,
-          downloadUrl: book.fileUrl, // Direct download link
+          downloadUrl: downloadUrl, // Pre-signed download link
           totalChunks: book.totalChunks,
           createdAt: book.createdAt
         }
@@ -207,11 +203,25 @@ router.get('/my-books', auth, async (req, res) => {
 
     const total = await Book.countDocuments({ authorId: req.author._id });
 
-    // Add bookUrl to each book
-         const booksWithUrls = books.map(book => ({
-       ...book.toObject(),
-               bookUrl: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/chat/${book.subdomain}`
-     }));
+    // Add bookUrl and generate pre-signed download URLs for each book
+    const booksWithUrls = await Promise.all(books.map(async (book) => {
+      let downloadUrl = null;
+      if (book.fileUrl) {
+        try {
+          const fileKey = book.fileUrl.split('/').slice(-2).join('/');
+          downloadUrl = await generatePresignedUrl(fileKey, 3600);
+        } catch (error) {
+          console.error('Failed to generate presigned URL for book:', book.title, error.message);
+          downloadUrl = book.fileUrl; // Fallback
+        }
+      }
+      
+      return {
+        ...book.toObject(),
+        bookUrl: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/chat/${book.subdomain}`,
+        downloadUrl: downloadUrl
+      };
+    }));
 
     res.json({
       books: booksWithUrls,
@@ -283,11 +293,25 @@ router.get('/:subdomain', async (req, res) => {
     // Increment view count
     await book.incrementViewCount();
 
+    // Generate pre-signed URL for download (expires in 1 hour)
+    let downloadUrl = null;
+    if (book.fileUrl) {
+      try {
+        const fileKey = book.fileUrl.split('/').slice(-2).join('/');
+        downloadUrl = await generatePresignedUrl(fileKey, 3600);
+      } catch (error) {
+        console.error('Failed to generate presigned URL:', error.message);
+        // Fallback to original fileUrl if presigned URL generation fails
+        downloadUrl = book.fileUrl;
+      }
+    }
+
     res.json({
       book: {
         ...book.toObject(),
         bookUrl: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/chat/${book.subdomain}`,
-        downloadUrl: book.fileUrl, // Direct PDF download link
+        fileUrl: book.fileUrl, // Direct PDF download link
+        downloadUrl: downloadUrl, // Pre-signed download link
         isReadyForChat: book.isProcessed && book.processingStatus === 'completed'
       }
     });
@@ -315,11 +339,7 @@ router.put('/:id', auth, [
     .trim()
     .isLength({ max: 1000 })
     .withMessage('Description cannot exceed 1000 characters'),
-  body('subject')
-    .optional()
-    .trim()
-    .isLength({ max: 100 })
-    .withMessage('Subject cannot exceed 100 characters'),
+
   body('publicationYear')
     .optional()
     .isInt({ min: 1900, max: new Date().getFullYear() })

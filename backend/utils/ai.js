@@ -220,7 +220,7 @@ You are NOT allowed to answer questions unrelated to this book.
 Guidelines:
 - Always use ONLY the provided book content to answer questions.
 - If the question is about the book, provide a clear, detailed, and helpful answer using the relevant parts of the text chunks.
-- If the user asks about specific pages (like "page 33", "page number 33", "what's on page 33"), find and summarize the relevant content from the provided text chunks that corresponds to that page or section.
+- If the user asks about specific pages (like "page 33", "page number 33", "what's on page 33","content on page 33","content of page 33",page no 33), find and summarize the relevant content from the provided text chunks that corresponds to that page or section.
 - If the user asks about specific chapters or sections, find and summarize the relevant content from the provided text chunks.
 - For page-specific questions, look through the provided content and identify which parts might correspond to the requested page, then provide a summary of that content.
 - If the question is not related to the book, respond with:  
@@ -290,15 +290,169 @@ ${contextText}`;
   }
 };
 
-// Check if query is relevant to book content
-const isQueryRelevant = async (query, context) => {
+// Check if a query is relevant to the book content using AI
+const isQueryRelevant = async (query, context, bookTitle) => {
   try {
-    // If no context is found, the query is not relevant
+    // If no context, query can't be relevant
     if (!context || context.length === 0) {
       console.log('No context found for query:', query);
       return false;
     }
 
+    // If we have substantial context, let AI decide relevance
+    const { openai } = initializeOpenAI();
+    
+    // Prepare context text for AI analysis
+    const contextText = context.map(doc => doc.pageContent).join('\n\n');
+    
+    // Create a prompt for AI to analyze query relevance
+    const relevancePrompt = `You are an AI assistant analyzing whether a user's question is relevant to a specific book.
+
+Book Title: "${bookTitle}"
+
+Available Book Content (first 2000 characters):
+${contextText.substring(0, 2000)}${contextText.length > 2000 ? '...' : ''}
+
+User Question: "${query}"
+
+Task: Determine if this question is relevant to the book content above.
+
+IMPORTANT: Be PERMISSIVE and allow questions that are related to the book in any way.
+
+Consider these questions as RELEVANT (examples from global book culture):
+
+📚 BOOK OVERVIEW & CONTENT:
+- "What's this book about?", "Tell me about this book", "What does this book cover?"
+- "What topics does this book discuss?", "What can I learn from this book?"
+
+📖 BOOK QUALITY & READABILITY:
+- "Is this book good to read?", "Is this book worth reading?", "Should I read this book?"
+- "Is this book helpful?", "Is this book useful?", "Is this book interesting?"
+- "Is this book easy to read?", "Is this book difficult?", "How hard is this book?"
+- "Is this book suitable for beginners?", "Is this book for experts?"
+
+👥 TARGET AUDIENCE:
+- "Who is this book for?", "Who should read this book?", "What age group is this book for?"
+- "Is this book for students?", "Is this book for professionals?", "Is this book for beginners?"
+
+📋 BOOK SUMMARY & OVERVIEW:
+- "Can you summarize this book?", "What's the main idea?", "What are the key points?"
+- "What are the main concepts?", "What are the main themes?", "What's the central message?"
+
+📑 CHAPTER & SECTION SPECIFIC:
+- "What's in chapter X?", "Explain the concepts in chapter X", "What does chapter X cover?"
+- "What's in the introduction?", "What's in the conclusion?", "What's in the appendix?"
+
+🔄 BOOK COMPARISON & RECOMMENDATIONS:
+- "How does this book compare to others?", "Which book should I read first?"
+- "What other books are like this one?", "What books should I read after this?"
+
+📊 BOOK DIFFICULTY & PREREQUISITES:
+- "How difficult is this book?", "What background knowledge do I need?"
+- "What should I know before reading?", "Can a beginner understand this book?"
+
+🏗️ BOOK STRUCTURE & ORGANIZATION:
+- "How is this book organized?", "What's the structure?", "How many chapters does it have?"
+- "What's the layout?", "How is the content arranged?"
+
+💡 BOOK USEFULNESS & APPLICATION:
+- "How useful is this book?", "What can I do with this book?", "How practical is this book?"
+- "Can I apply this to my work?", "Can I use this for my studies?", "Can I use this for my research?"
+
+✍️ BOOK STYLE & WRITING:
+- "How is this book written?", "What's the writing style like?", "Is this book well-written?"
+- "Is the writing clear?", "Is the writing engaging?", "What's the tone of this book?"
+
+⏱️ BOOK LENGTH & TIME:
+- "How long is this book?", "How many pages?", "How long does it take to read?"
+- "Is this book short?", "Is this book long?", "How much time do I need?"
+
+📚 BOOK GENRE & CATEGORY:
+- "What genre is this book?", "What type of book is this?", "What category does it belong to?"
+- "Is this fiction?", "Is this non-fiction?", "Is this a textbook?", "Is this a reference book?"
+
+✍️ BOOK AUTHOR & CREDIBILITY:
+- "Who wrote this book?", "Who is the author?", "Is the author credible?"
+- "Is the author an expert?", "What are the author's credentials?"
+
+📖 BOOK EDITION & VERSION:
+- "What edition is this book?", "Is this the latest edition?", "When was this published?"
+- "How old is this book?", "Is this book outdated?", "Is this book current?"
+
+💰 BOOK PRICE & VALUE:
+- "Is this book worth the price?", "Is this book expensive?", "Is this book affordable?"
+- "Is this book worth buying?", "Should I buy this book?", "Is this book a good value?"
+
+🛒 BOOK AVAILABILITY & ACCESS:
+- "Where can I get this book?", "Where can I buy this book?", "Is this book available?"
+- "Is this book in stock?", "Can I borrow this book?", "Is this book online?"
+
+⭐ BOOK REVIEWS & RATINGS:
+- "What do people say about this book?", "What are the reviews like?", "What's the rating?"
+- "How many stars does it have?", "What do critics say?", "What do experts say?"
+
+🌍 BOOK CONTEXT & BACKGROUND:
+- "What's the context of this book?", "What's the background?", "What's the purpose?"
+- "What's the goal?", "What's the mission?", "What's the philosophy?"
+
+🚀 BOOK IMPACT & INFLUENCE:
+- "How influential is this book?", "How important is this book?", "How significant is this book?"
+- "How groundbreaking is this book?", "How revolutionary is this book?"
+
+🔑 KEYWORDS THAT MAKE QUESTIONS RELEVANT:
+Any question containing: book, read, good, worth, content, summary, about, what, how, why, topic, theme, chapter, section, page, author, writing, quality, suitable, appropriate, recommend, compare, opinion, review, audience, target, who, for, level, difficulty, beginner, expert, student, professional, useful, helpful, practical, apply, use, structure, organization, format, style, tone, voice, length, time, pages, genre, category, type, edition, version, publish, price, value, buy, buy, available, access, stock, borrow, rent, download, online, digital, physical, review, rating, stars, critic, expert, reader, context, background, purpose, goal, mission, philosophy, approach, methodology, framework, perspective, viewpoint, angle, impact, influence, important, significant, groundbreaking, revolutionary, innovative, original, creative, unique, special, remarkable, extraordinary, exceptional, outstanding, excellent, superb, magnificent, wonderful
+
+ONLY mark as NOT_RELEVANT if the question is completely unrelated to books, reading, or learning (e.g., "What's the weather like?", "How to cook pasta?", "What's your favorite color?")
+
+Respond with ONLY "RELEVANT" or "NOT_RELEVANT" followed by a brief explanation.
+
+Example responses:
+- "RELEVANT - Question asks about book content and quality"
+- "RELEVANT - Question asks if book is worth reading"
+- "RELEVANT - Question asks for book summary or overview"
+- "RELEVANT - Question asks about target audience"
+- "NOT_RELEVANT - Question is about cooking, not books"`;
+
+    console.log('🤖 Using AI to determine query relevance...');
+    console.log('📝 Query being analyzed:', query);
+    console.log('📚 Book title:', bookTitle);
+    
+    // Get AI response using correct LangChain syntax
+    const response = await openai.invoke([
+      ['system', 'You are a helpful AI assistant that determines query relevance. Respond with ONLY "RELEVANT" or "NOT_RELEVANT" followed by a brief explanation.'],
+      ['human', relevancePrompt]
+    ]);
+
+    // Handle LangChain response format
+    let aiResponse;
+    if (typeof response === 'string') {
+      aiResponse = response;
+    } else if (response && response.content) {
+      aiResponse = response.content;
+    } else {
+      aiResponse = response.toString();
+    }
+
+    aiResponse = aiResponse.trim();
+    console.log('🤖 AI relevance response:', aiResponse);
+
+    // Parse AI response
+    const isRelevant = aiResponse.toUpperCase().startsWith('RELEVANT');
+    
+    if (isRelevant) {
+      console.log('✅ AI determined query is RELEVANT to book content');
+    } else {
+      console.log('❌ AI determined query is NOT RELEVANT to book content');
+    }
+    
+    return isRelevant;
+    
+  } catch (error) {
+    console.error('AI relevance check error:', error);
+    
+    // Fallback to basic relevance check if AI fails
+    console.log('🔄 AI relevance check failed, using fallback logic...');
+    
     // Check if the context has meaningful content
     const hasContent = context.some(doc => 
       doc.pageContent && 
@@ -310,56 +464,112 @@ const isQueryRelevant = async (query, context) => {
       return false;
     }
 
-    // Check if this is a page-specific query
-    const isPageQuery = query.toLowerCase().includes('page') || 
-                       query.toLowerCase().includes('chapter') ||
-                       /\b\d+\b/.test(query); // Contains numbers (could be page numbers)
-
-    // Check if this is a book-related query (summary, explain, what is, etc.)
-    const isBookQuery = query.toLowerCase().includes('summary') ||
-                       query.toLowerCase().includes('explain') ||
-                       query.toLowerCase().includes('what is') ||
-                       query.toLowerCase().includes('what are') ||
-                       query.toLowerCase().includes('tell me about') ||
-                       query.toLowerCase().includes('describe') ||
-                       query.toLowerCase().includes('translate') ||
-                       query.toLowerCase().includes('in hindi') ||
-                       query.toLowerCase().includes('in spanish') ||
-                       query.toLowerCase().includes('in french') ||
-                       query.toLowerCase().includes('in german');
-
-    // If it's a page-specific or book-related query and we have context, it's relevant
-    if ((isPageQuery || isBookQuery) && hasContent) {
-      console.log('Query is relevant - page/book query with content:', query);
-      return true;
-    }
-
-    // For other queries, check if the context actually contains relevant information
-    // by looking for keyword matches in the context
-    const queryWords = query.toLowerCase().split(/\s+/).filter(word => word.length > 2);
-    const contextText = context.map(doc => doc.pageContent.toLowerCase()).join(' ');
-    
-    const hasRelevantKeywords = queryWords.some(word => 
-      contextText.includes(word)
-    );
-
-    if (hasRelevantKeywords) {
-      console.log('Query is relevant - keyword match found:', query);
-      return true;
-    }
-
-    // If we have substantial context and it's not clearly off-topic, allow it
-    // This is more permissive to avoid false negatives
+    // Basic fallback: be more permissive - if we have any meaningful content, allow book-related queries
     const totalContextLength = context.reduce((sum, doc) => sum + (doc.pageContent?.length || 0), 0);
-    if (totalContextLength > 100) { // If we have substantial context
-      console.log('Query is relevant - substantial context available:', query);
+    
+    // Check if the query contains book-related keywords (comprehensive list from global training)
+    const bookRelatedKeywords = [
+      // Core book terms
+      'book', 'read', 'reading', 'reader', 'text', 'content', 'material', 'publication',
+      
+      // Quality & value
+      'good', 'worth', 'quality', 'value', 'helpful', 'useful', 'practical', 'interesting',
+      'boring', 'easy', 'difficult', 'hard', 'suitable', 'appropriate', 'recommend',
+      
+      // Content & structure
+      'about', 'what', 'how', 'why', 'topic', 'theme', 'subject', 'concept', 'idea',
+      'chapter', 'section', 'page', 'part', 'introduction', 'conclusion', 'preface',
+      'appendix', 'index', 'glossary', 'bibliography', 'reference',
+      
+      // Summary & overview
+      'summary', 'overview', 'gist', 'essence', 'core', 'heart', 'main', 'key', 'central',
+      'message', 'takeaway', 'point', 'argument', 'theme',
+      
+      // Author & credibility
+      'author', 'writer', 'written', 'writing', 'style', 'tone', 'voice', 'clear',
+      'engaging', 'well-written', 'credible', 'expert', 'qualified', 'background',
+      'experience', 'credentials', 'reputation', 'famous', 'well-known',
+      
+      // Target audience
+      'audience', 'target', 'who', 'for', 'level', 'difficulty', 'beginner', 'expert',
+      'student', 'professional', 'academic', 'casual', 'children', 'teenager', 'adult',
+      'college', 'researcher', 'teacher', 'developer', 'business', 'academic',
+      
+      // Comparison & recommendations
+      'compare', 'similar', 'different', 'better', 'best', 'alternative', 'other',
+      'recommend', 'suggestion', 'choice', 'option', 'first', 'after', 'before',
+      
+      // Structure & organization
+      'structure', 'organization', 'layout', 'format', 'arrangement', 'division',
+      'framework', 'methodology', 'approach', 'system', 'plan', 'design',
+      
+      // Usefulness & application
+      'useful', 'helpful', 'practical', 'apply', 'use', 'work', 'study', 'research',
+      'project', 'business', 'career', 'development', 'relevant', 'applicable',
+      'benefit', 'advantage', 'value', 'worthwhile',
+      
+      // Length & time
+      'long', 'short', 'length', 'time', 'page', 'hour', 'day', 'week', 'quick',
+      'slow', 'fast', 'duration', 'period',
+      
+      // Genre & category
+      'genre', 'category', 'type', 'kind', 'fiction', 'non-fiction', 'textbook',
+      'reference', 'self-help', 'business', 'technical', 'academic', 'popular',
+      'classic', 'modern', 'contemporary', 'traditional',
+      
+      // Edition & version
+      'edition', 'version', 'latest', 'first', 'new', 'old', 'updated', 'revised',
+      'published', 'outdated', 'current', 'up-to-date', 'recent',
+      
+      // Price & value
+      'price', 'cost', 'expensive', 'cheap', 'affordable', 'overpriced', 'value',
+      'worth', 'buy', 'purchase', 'investment', 'money', 'cost-effective',
+      
+      // Availability & access
+      'available', 'access', 'stock', 'find', 'get', 'buy', 'borrow', 'rent',
+      'download', 'online', 'digital', 'physical', 'ebook', 'audiobook',
+      
+      // Reviews & ratings
+      'review', 'rating', 'star', 'critic', 'expert', 'reader', 'opinion',
+      'feedback', 'comment', 'praise', 'complaint', 'strength', 'weakness',
+      'pro', 'con', 'positive', 'negative', 'mixed',
+      
+      // Context & background
+      'context', 'background', 'history', 'origin', 'purpose', 'goal', 'aim',
+      'objective', 'mission', 'vision', 'philosophy', 'approach', 'methodology',
+      'framework', 'perspective', 'viewpoint', 'angle',
+      
+      // Impact & influence
+      'impact', 'influence', 'important', 'significant', 'groundbreaking', 'revolutionary',
+      'innovative', 'original', 'creative', 'unique', 'special', 'remarkable',
+      'extraordinary', 'exceptional', 'outstanding', 'excellent', 'superb',
+      'magnificent', 'wonderful', 'amazing', 'incredible', 'fantastic',
+      
+      // General question words
+      'what', 'how', 'why', 'when', 'where', 'which', 'who', 'can', 'should', 'would',
+      'could', 'might', 'may', 'will', 'do', 'does', 'is', 'are', 'was', 'were'
+    ];
+    
+    const queryLower = query.toLowerCase();
+    const hasBookKeywords = bookRelatedKeywords.some(keyword => queryLower.includes(keyword));
+    
+    if (totalContextLength > 50 && hasBookKeywords) {
+      console.log('Fallback: Query allowed - contains book-related keywords and has content');
+      return true;
+    }
+    
+    if (totalContextLength > 100) {
+      console.log('Fallback: Query allowed due to substantial context available');
       return true;
     }
 
-    console.log('Query is not relevant - no clear relevance found:', query);
-    return false;
-  } catch (error) {
-    console.error('Query relevance check error:', error);
+    // Be very permissive - if the query contains any book-related words, allow it
+    if (hasBookKeywords) {
+      console.log('Fallback: Query allowed - contains book-related keywords');
+      return true;
+    }
+
+    console.log('Fallback: Query not relevant - insufficient context and no book-related keywords');
     return false;
   }
 };

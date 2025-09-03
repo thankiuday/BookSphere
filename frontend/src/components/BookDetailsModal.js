@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { X, BookOpen, User, Calendar, Eye, MessageCircle, QrCode } from 'lucide-react';
+import { X, User, Calendar, Eye, MessageCircle, QrCode } from 'lucide-react';
 
 const BookDetailsModal = ({ book, isOpen, onClose }) => {
   const navigate = useNavigate();
@@ -39,12 +39,6 @@ const BookDetailsModal = ({ book, isOpen, onClose }) => {
           {/* Book Info */}
           <div className="mb-4 sm:mb-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3 space-y-1 sm:space-y-0">
-              <div className="flex items-center space-x-2">
-                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-primary-900 flex-shrink-0" />
-                <span className="text-xs sm:text-sm text-gray-500 truncate">
-                  {book.subject || 'General'}
-                </span>
-              </div>
               {book.publicationYear && (
                 <span className="text-xs sm:text-sm text-gray-500">
                   {book.publicationYear}
@@ -140,17 +134,7 @@ const BookDetailsModal = ({ book, isOpen, onClose }) => {
               <span>Chat with Book</span>
             </button>
             
-            {book.fileUrl && (
-              <a
-                href={book.fileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary flex-1 flex items-center justify-center space-x-2 text-sm sm:text-base"
-              >
-                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>Download PDF</span>
-              </a>
-            )}
+
           </div>
         </div>
       </div>
